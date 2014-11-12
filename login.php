@@ -1,10 +1,5 @@
 <?php
 include 'inc/functions.php';
-
-$user = login('louisdebraine@gmail.com','toto');
-var_dump($user);
-
-
 ?>
 <html>
 <body>

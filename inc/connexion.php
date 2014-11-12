@@ -1,20 +1,18 @@
 <?php
 
-
-$Db_server = 'localhost';
-$Db_name = 'blogmmi';
-$Db_user = 'blogmmilkhljkh';
-$Db_pass = '';
+include 'config.php';
 
 function connect(){
+
+	$myConnexion = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME);
 	
-	if (!$myConnexion = mysqli_connect($Db_server,$Db_user,$Db_password,$Db_name))
+	if($myConnexion->connect_errno)
 	{
 		$myConnexion = 'Erreur Db('.$myConnexion->connect_errno.')'.$myConnexion->connect_errno;
-		echo 'erreur de connexion<br />';
+		echo 'Erreur de connexion !<br />';
 	}
+	
 	return $myConnexion;
-	echo 'retour connexion ok<br />';;
 }
 
 function disconnect($connexion){

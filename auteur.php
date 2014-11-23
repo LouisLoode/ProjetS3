@@ -4,7 +4,7 @@ include 'includes/functions.php';
 
 $myConnexion=connect();
 $id_auteur = $_GET['id_auteur'];
-$req="SELECT nom_au FROM auteurs WHERE auteurs.id_auteur = ". $id_auteur.";";
+$req='SELECT nom_au FROM auteurs WHERE auteurs.id_auteur = '. $id_auteur.';';
 //var_dump($req);
 $result = mysqli_query($myConnexion,$req);
 //var_dump($result);

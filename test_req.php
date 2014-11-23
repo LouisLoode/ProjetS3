@@ -3,7 +3,7 @@
 
 <?php
 
-include 'includes/functions.php';
+include 'inc/functions.php';
 				
 ?>
 
@@ -12,7 +12,17 @@ include 'includes/functions.php';
 <h2>NOS AUTEURS</h2>
             	
 				<ul>
-					<?php $auteurs=liste_auteurs(); ?>
+<?php 
+	$auteurs=liste_auteurs(); 
+	
+foreach($auteurs as $n)
+{
+
+			$myAutors['id_auteur'] = $auteurs['id_auteur'];
+			$myAutors['nom_au'] = $auteurs['nom_au'];
+			echo "<li><a href='articles_auteurs.php?id_auteur=".$auteurs['id_auteur']." '> ".$auteurs['nom_au']."</a></li>";
+		}
+?>
 				</ul>	
 
 <h2>NOS ARTICLES</h2>

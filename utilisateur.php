@@ -5,11 +5,11 @@ include 'inc/functions.php';
 // Connexion à la BDD
 $myConnexion=connect();
 
-// Récupération de l'id de l'article indiqué dans l'URL
-$id_article = $_GET['id'];
+// Récupération de l'id de l'utilisateur indiqué dans l'URL
+$id_user = $_GET['id'];
 
 //Préparation de la requête
-$article=display_article($id_article);
+$article=display_article($id_user);
 
 	foreach($article as $data)
 {
@@ -30,11 +30,3 @@ $article=display_article($id_article);
 ?>
 
 <p><a href="index.php"> Accueil </a></p>
-
-
-
-
-	
-	
-
-	

@@ -14,23 +14,12 @@ echo $user['email'];
 
 <h1> Accueil du site </h1>
 
-<h2>NOS AUTEURS</h2>
-            	
-				<ul>
-					<?php $auteurs=liste_auteurs(); ?>
-				</ul>	
-
-<h2>NOS ARTICLES</h2>
-
 <ul>
-<?php $articles=liste_articles(); ?>
+	<li><a href="articles.php">Lien vers tout les articles</a></li>
+	<li><a href="liste_categories.php">Liste des categories</a></li>
+	<li><a href="liste_utilisateurs.php">Liste de tous les utilisateurs</a></li>
+	<li></li>
 </ul>
-
-<h2>NOS RUBRIQUES</h2>
-
-<ul>
-<?php $rubriques=liste_rubriques(); ?>
-</ul>		
 
 </body>
 </html>

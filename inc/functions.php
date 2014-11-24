@@ -1,6 +1,6 @@
-	<?php
+<?php
 
-	include "connexion.php";
+include 'connexion.php';
 
 //Différentes fonctions pour chaque requête
 
@@ -21,7 +21,10 @@
 		disconnect($myConnexion);
 		return $myUser;
 	}
-
+	
+	
+	
+/*
 //Lister les auteurs
 
 	function liste_auteurs(){
@@ -42,62 +45,148 @@
         return $auteurs;
 		
 	}
+*/
+
+
 
 //Lister les articles
-
-	function liste_articles(){
-		$myConnexion=connect();
-		//var_dump($myConnexion);
-		$myRequete = "SELECT * FROM articles LIMIT 0,2;";
-		$myCols=mysqli_query($myConnexion,$myRequete);
-		//var_dump($resultats);
-		while($articles=mysqli_fetch_array($myCols)){
-
-			echo "<li>";
-			echo "<a href='article.php?id=".$articles['id_article']." '>".$articles['titre']."</a></li>";
-			echo "<br>";
-			echo "<p>".substr($articles['contenu'],0,300)."...</p></li>";
-		}
-
-			disconnect($myConnexion);
-		return $articles;
-	}
-
-//Lister les rubriques
-
-	function liste_rubriques(){
-		$myConnexion=connect();
-		//var_dump($myConnexion);
-		$myRequete = "SELECT * FROM rubriques;";
-		$myCols=mysqli_query($myConnexion,$myRequete);
-		//var_dump($resultats);
-		while($rubriques=mysqli_fetch_array($myCols)){
-
-			echo "<li><a href='articles_rubriques.php?id_rubrique=".$rubriques['id_rubrique']." '> ".$rubriques['nom_ru']."</a></li>";
-		}
-
-			disconnect($myConnexion);
-		return $rubriques;
-	}
-
-	?>
-	<?php
-
-//Lister les articles en fonction de l'auteur choisi
-
-	function articles_par_auteurs(){
-
-	$myConnexion=connect();
+function liste_articles($by, $id=){
+	
+	// La fonction de connexion doit rester active durant tout le script.
+	global $myConnexion;
 	//var_dump($myConnexion);
+	
+	// Création du tableau
+	$articles = array();
 
-	$id_auteur = $_GET['id_auteur'];
+	// Par date
+	if ($by == 'date'){
+		
+		$order_by = 'ORDER BY date';
+	
+	// Par auteur
+	}elseif($by == 'auteur'){
+		
+		
+		if() {
+			
+		}
+		$order_by = 'ORDER BY id_auteur';
+		
+	// Par note
+	}elseif($by == 'note'){
+		
+		$order_by = 'ORDER BY note';
+	
+	//Sinon
+	}else{
+		$order_by = '';
+	}
+
+	// Préparation de la requête
+	$myRequete = 'SELECT *
+					FROM articles '.$order_by;
+	//var_dump($myRequete);			
+
+
+	// Lancement de la requête
+	$req=mysqli_query($myConnexion,$myRequete);
+	//var_dump($myCols);
+
+
+		// Boucle qui stocke les résultats dans un tableau
+        while ($data = mysqli_fetch_assoc($req))
+        {
+                $articles[] = $data;
+        }
+ 
+		// Renvoi du tableau pour utilisation future
+        return $articles;
+
+}
+	
+
+//Afficher la liste des catégories
+function liste_categories(){
+	
+	// La fonction de connexion doit rester active durant tout le script.
+	global $myConnexion;
+	//var_dump($myConnexion);
+	
+	// Création du tableau
+	$categories = array();
+
+	//var_dump($id_auteur);
+
+	// Préparation de la requête
+	$myRequete = 'SELECT *
+					FROM rubriques';
+	//var_dump($myRequete);			
+
+
+	// Lancement de la requête
+	$req=mysqli_query($myConnexion,$myRequete);
+	//var_dump($myCols);
+
+
+		// Boucle qui stocke les résultats dans un tableau
+        while ($data = mysqli_fetch_assoc($req))
+        {
+                $categories[] = $data;
+        }
+ 
+		// Renvoi du tableau pour utilisation future
+        return $categories;
+
+}
+
+
+
+//Afficher la liste des catégories
+function articles_par_utilisateur($id_auteur){
+	
+	// La fonction de connexion doit rester active durant tout le script.
+	global $myConnexion;
+	//var_dump($myConnexion);
+	
+	// Création du tableau
+	$categories = array();
+
+	//var_dump($id_auteur);
+
+	// Préparation de la requête
+	$myRequete = 'SELECT * 
+					FROM articles, utilisateurs
+					WHERE utilisateurs.Id_Utilisateur = "'.$id_auteur.'"
+					AND articles.Id_Utilisateur = "'.$id_auteur.'";';
+	//var_dump($myRequete);			
+
+
+	// Lancement de la requête
+	$req=mysqli_query($myConnexion,$myRequete);
+	//var_dump($myCols);
+
+
+		// Boucle qui stocke les résultats dans un tableau
+        while ($data = mysqli_fetch_assoc($req))
+        {
+                $categories[] = $data;
+        }
+ 
+		// Renvoi du tableau pour utilisation future
+        return $categories;
+
+}
+
+
+
 	//var_dump($id_auteur);
 
 	//$req="SELECT * FROM auteurs WHERE auteurs.id_auteur = ". $id_auteur.";";
 	//$activeauteur= mysql_query($req);
 	//var_dump($activeauteur);
 
-
+/*
 
 		$myRequete = "SELECT * 
 					FROM articles, auteurs
@@ -124,7 +213,7 @@
 				}
 						disconnect($myConnexion);
 		return $a_au;
-	}
+	}*/
 
 //Lister les articles en fonction de la rubrique choisie
 
@@ -174,8 +263,14 @@
 	
 	
 
-//Afficher l'article sélectionné
 
+
+
+
+
+	
+
+//Afficher l'article sélectionné
 function display_article($id_article){
 	
 	// La fonction de connexion doit rester active durant tout le script.
@@ -208,7 +303,7 @@ function display_article($id_article){
 		// Renvoi du tableau pour utilisation future
         return $article;
 
-	}
+}
 
 
 ?>

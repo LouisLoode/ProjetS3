@@ -13,7 +13,7 @@ include 'inc/config.php';
 
 // On se connecte à la BDD
 include 'inc/bdd.php';
-
+ 
 // Connexion à la BDD via la fonction définie dans config.php
 $myConnexion = connect();
 

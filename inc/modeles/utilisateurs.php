@@ -1,13 +1,18 @@
 <?php
 
 //Vérifier les identifiants pour se connecter à la BDD
-
-	function login($email,$password) {
-		$myConnexion=connect();
-		//var_dump($myConnexion);
-		$myRequete='SELECT nom_user, email, id_profil FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
-		//var_dump($myRequete);
-		$myCols=mysqli_query($myConnexion,$myRequete);
+function login($email,$password) {
+	
+	// La fonction de connexion doit rester active durant tout le script.
+	global $myConnexion;
+	
+	// Préparation de la requête
+	$myRequete='SELECT nom_user, email, id_profil FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
+	//var_dump($myRequete);
+	
+	// Execution de la requête
+	$myCols=mysqli_query($myConnexion,$myRequete);
+	
 		while($row=mysqli_fetch_array($myCols)){
 			$myUser['email']=$row['email'];
 			$myUser['id_profil']=$row['id_profil'];

@@ -1,6 +1,9 @@
 <?php
-//On démarre la session
+// On démarre la session
 session_start();
+
+// On définit l'encodage en UTF-8
+header('Content-type: text/html; charset=utf-8');
 
 // On veut afficher toutes les erreurs
 //ini_set('display_errors', 1);
@@ -8,15 +11,11 @@ session_start();
 // On importe la configuration générale du site et les paramétres de connexion à la BDD
 include 'inc/config.php';
 
+// On se connecte à la BDD
+include 'inc/bdd.php';
+
 // Connexion à la BDD via la fonction définie dans config.php
 $myConnexion = connect();
-
-// On gére les guillemets magiques
-if(get_magic_quotes_gpc()) {
-        $_POST = array_map('stripslashes', $_POST);
-        $_GET = array_map('stripslashes', $_GET);
-        $_COOKIE = array_map('stripslashes', $_COOKIE);
-}
 
 // On appelle le haut de la page
 include 'pages/vues/header.php';

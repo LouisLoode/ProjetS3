@@ -1,5 +1,5 @@
 <?php
-include 'inc/functions.php';
+include 'header.php';
 
 /*
 $user = login('test@test.com','test');
@@ -15,7 +15,7 @@ echo $user['email'];
 <h1> Accueil du site </h1>
 
 <ul>
-	<li><a href="articles.php">Lien vers tout les articles</a></li>
+	<li><a href="liste_articles.php">Lien vers tout les articles</a></li>
 	<li><a href="liste_categories.php">Liste des categories</a></li>
 	<li><a href="liste_utilisateurs.php">Liste de tous les utilisateurs</a></li>
 	<li></li>
@@ -23,4 +23,3 @@ echo $user['email'];
 
 </body>
 </html>
-

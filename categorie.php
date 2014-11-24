@@ -5,13 +5,13 @@ include 'header.php';
 
 // Récupération de l'id de l'article indiqué dans l'URL
 if($_GET['id'] != null){
-$id_article = $_GET['id'];
+$id_cat = $_GET['id'];
 }
 
 //Préparation de la requête
-$article=display_article($id_article);
+$articles=articles_par_categories($id_cat);
 
-	foreach($article as $data)
+	foreach($articles as $data)
 {
 	?>
 
@@ -23,10 +23,10 @@ $article=display_article($id_article);
 						<p><?php echo $data['contenu']; ?></p>
 						<p>Note: <?php echo $data['note']; ?>/10</p>
 
-	<?php
-	}
+<?php
+}
 
 // On appelle le bas de la page
 include 'footer.php';
-
+	
 ?>

@@ -1,8 +1,7 @@
-<html>
-<body>
+<?php
+// On appelle le haut de la page
+include 'header.php';
 
-	<?php
-		include 'inc/functions.php';
 		if($_POST){
 	
 	$myUser = login($_POST['email'], $_POST['password']);
@@ -37,7 +36,6 @@ else{
 
 }
 
+// On appelle le bas de la page
+include 'footer.php';
 ?>
-
-</body>
-</html>

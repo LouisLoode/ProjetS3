@@ -1,9 +1,7 @@
 <?php
 
-include 'inc/functions.php';
-
-// Connexion à la BDD
-$myConnexion=connect();
+// On appelle le haut de la page
+include 'header.php';
 
 //Préparation de la requête
 $categories=liste_categories();
@@ -12,23 +10,13 @@ $categories=liste_categories();
 {
 	?>
 
-	<h1><?php echo $data['nom_ru']; ?></h1>
+	<h1><a href="categorie.php?id=<?php echo $data['id_categorie']; ?>"><?php echo $data['nom_cat']; ?></a></h1>
 	
-						<h2>ID -> <?php echo $data['id_rubrique']; ?></h2>
+						<h2>ID -> <?php echo $data['id_categorie']; ?></h2>
 
-	<?php
-	}
-
-	disconnect($myConnexion);
-					
+<?php
+}
+	
+// On appelle le bas de la page
+include 'footer.php';
 ?>
-
-<p><a href="index.php"> Accueil </a></p>
-
-
-
-
-	
-	
-
-	

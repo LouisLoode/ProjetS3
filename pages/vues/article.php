@@ -1,16 +1,5 @@
 <?php
 
-// On appelle le haut de la page
-include 'header.php';
-
-// Récupération de l'id de l'article indiqué dans l'URL
-if($_GET['id'] != null){
-$id_article = $_GET['id'];
-}
-
-//Préparation de la requête
-$article=display_article($id_article);
-
 	foreach($article as $data)
 {
 	?>
@@ -25,8 +14,4 @@ $article=display_article($id_article);
 
 	<?php
 	}
-
-// On appelle le bas de la page
-include 'footer.php';
-
 ?>

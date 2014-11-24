@@ -1,16 +1,5 @@
 <?php
 
-// On appelle le haut de la page
-include 'header.php';
-
-// Récupération de l'id de l'article indiqué dans l'URL
-if($_GET['id'] != null){
-$id_cat = $_GET['id'];
-}
-
-//Préparation de la requête
-$articles=articles_par_categories($id_cat);
-
 	foreach($articles as $data)
 {
 	?>
@@ -25,8 +14,4 @@ $articles=articles_par_categories($id_cat);
 
 <?php
 }
-
-// On appelle le bas de la page
-include 'footer.php';
-	
 ?>

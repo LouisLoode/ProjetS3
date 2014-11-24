@@ -1,32 +1,18 @@
 <?php
 
-// On appelle le haut de la page
-include 'header.php';
-
-// Récupération de l'id de l'utilisateur indiqué dans l'URL
-$id_user = $_GET['id'];
-
-
-//Préparation de la requête
-$user=display_utilisateur($id_user);
-
-
 	foreach($user as $data)
 {
 	?>
 
 	<h1><?php echo $data['nom_user']; ?></h1>
 	
-						<h2>De <?php echo $data['Email']; ?></h2>
+						<h2>De <?php echo $data['email']; ?></h2>
 
 <hr />
 	<?php
 	}
 
 
-
-//Préparation de la requête
-$article=articles_par_utilisateur($id_user);
 
 
 	foreach($article as $data)
@@ -43,8 +29,4 @@ $article=articles_par_utilisateur($id_user);
 
 	<?php
 	}
-
-	disconnect($myConnexion);
 ?>
-
-<p><a href="index.php"> Accueil </a></p>

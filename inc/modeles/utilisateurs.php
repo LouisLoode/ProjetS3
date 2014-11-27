@@ -1,27 +1,51 @@
 <?php
 
 //Vérifier les identifiants pour se connecter à la BDD
-function login($email,$password) {
+function login($email, $password) {
 	
 	// La fonction de connexion doit rester active durant tout le script.
 	global $myConnexion;
 	
+	$myUser = array();
+	
 	// Préparation de la requête
-	$myRequete='SELECT nom_user, email, id_profil FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
+	$myRequete='SELECT nom_user, email, id_user FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
 	//var_dump($myRequete);
 	
 	// Execution de la requête
 	$myCols=mysqli_query($myConnexion,$myRequete);
 	
-		while($row=mysqli_fetch_array($myCols)){
-			$myUser['email']=$row['email'];
-			$myUser['id_profil']=$row['id_profil'];
+		while($row = mysqli_fetch_array($myCols)){
+			$myUser['email'] = $row['email'];
+			$myUser['id_user'] = $row['id_user'];
 		}
 		//var_dump($myCols);
 		//var_dump($myUser);
-		disconnect($myConnexion);
 		return $myUser;
-	}
+}
+
+//Vérifier les identifiants pour se connecter à la BDD
+function inscription($login, $email, $password) {
+	
+	// La fonction de connexion doit rester active durant tout le script.
+	global $myConnexion;
+	
+	$myUser = array();
+	
+	// Préparation de la requête
+	$myRequete='SELECT nom_user, email, id_profil FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
+	
+
+	$myRequete='INSERT INTO utilisateurs ( id_user , nom_user , password , email , date_inscription )
+        VALUES ("", "'.$login.'", PASSWORD("'.$password.'"), "'.$email.'", NOW() );';
+	//var_dump($myRequete);
+	
+	// Execution de la requête
+	$myCols = mysqli_query($myConnexion,$myRequete);
+
+
+		//return $myUser;
+}
 
 
 //Lister les utilisateurs
@@ -35,28 +59,6 @@ function liste_utilisateurs(){
 	$utilisateurs = array();
 	
 	$order_by = '';
-
-/*
-	// Par date
-	if ($by == 'date'){
-		
-		$order_by = 'ORDER BY articles.date';
-	
-	// Par auteur
-	}elseif($by == 'auteur'){
-		
-		$order_by = 'ORDER BY utilisateurs.Id_Utilisateur';
-		
-	// Par note
-	}elseif($by == 'note'){
-		
-		$order_by = 'ORDER BY articles.note';
-	
-	//Sinon
-	}else{
-		$order_by = '';
-	}
-*/
 
 	// Préparation de la requête
 	$myRequete = 'SELECT * FROM utilisateurs;

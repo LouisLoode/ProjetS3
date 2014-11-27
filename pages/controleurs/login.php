@@ -14,7 +14,7 @@ Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'
 
 
 
-
+/*
 
 	// Si les identifiants sont valides
 	if (false !== $id_utilisateur) {
@@ -52,29 +52,37 @@ Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'
 		include CHEMIN_VUE.'formulaire_connexion.php';
 	}
 
+*/
 
 
 if($_POST){
 	
+	echo $_POST['email'].' '.$_POST['password'];
+	
 	$myUser = login($_POST['email'], $_POST['password']);
 	//var_dump($myUser);
 
-	if($myUser!=NULL) {
-		//echo 'Bonjour '.$myUser['email'];
+	// Si le mec est connecté on lui crée les sessions et cookies si besoin
+	if($myUser != NULL) {
+		
+				
 		header('Location: index.php?page=utilisateurs&='.$myUser['id_profil']);
-		exit();
 
 	}
 
 		else {
 
-			echo 'Problème Identifiant';
+				
+		$alert = message('Vos identifiants ne sont pas valides', 3);
+		//On inclut la vue
+		include(dirname(__FILE__).'/'.VUES.'/login.php');
 		
 	}
 
 }
 
 else{
+ 
  
 //On inclut la vue
 include(dirname(__FILE__).'/'.VUES.'/login.php');

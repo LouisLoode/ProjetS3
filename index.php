@@ -12,7 +12,11 @@ header('Content-type: text/html; charset=utf-8');
 include 'inc/config.php';
 
 // On se connecte à la BDD
-include 'inc/bdd.php';
+include 'inc/fonctions.php';
+
+// On initialise le tableau qui gére les messages d'erreur.
+$alerts = array();
+
  
 // Connexion à la BDD via la fonction définie dans config.php
 $myConnexion = connect();

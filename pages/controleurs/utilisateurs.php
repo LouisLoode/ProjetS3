@@ -21,8 +21,11 @@ if (isset($_GET['id'])) {
 	$user = display_utilisateur($id_user);
 	
 	
+	$by = null;
+	$id_cat = null;
+	
 	//Préparation de la requête de récupération d'articles de l'utilisateur
-	$article = articles_par_utilisateur($id_user);
+	$article = liste_articles($by, $id_cat ,$id_user);
 	
 	//On inclut la vue
 	include(dirname(__FILE__).'/'.VUES.'/utilisateur.php');

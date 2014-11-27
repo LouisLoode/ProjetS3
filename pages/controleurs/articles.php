@@ -23,11 +23,22 @@ if (isset($_GET['id'])) {
 	
 }else{
 	
-	// Récupération du type de triage
-	$by = $_GET['by'];
-
-	//Préparation de la requête
-	$articles = liste_articles($by);
+	
+	if (isset($_GET['by'])) { 
+		
+		// Récupération du type de triage
+		$by = $_GET['by'];
+	
+		//Préparation de la requête
+		$articles = liste_articles($by);
+	
+	}else{
+	
+	
+		//Préparation de la requête
+		$articles = liste_articles();
+ 
+ 	}
  
 	//On inclut la vue
 	include(dirname(__FILE__).'/'.VUES.'/articles.php');

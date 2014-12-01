@@ -1,4 +1,4 @@
-		<div id="main" class="container">
+
 
 			<div class="section section-no-margin-bottom row entries bg-primary">
 
@@ -86,17 +86,6 @@
 					
 					<article class="entry style-single style-single-full type-post col-md-10 col-md-offset-1">
 
-						<figure class="entry-thumbnail">
-
-							<!-- to disable lazy loading, remove data-src and data-src-retina -->
-							<img src="../img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="">
-
-							<!--fallback for no javascript browsers-->
-							<noscript>
-								<img src="http://placehold.it/680x452" alt="">
-							</noscript>
-
-						</figure>
 
 						<div class="entry-meta indented">
 							<span class="author">by <a href="blog.html">John Doe</a></span>
@@ -136,25 +125,24 @@ $page = 25;
 $nb_page = 98;
 
 $listePage = get_list_page($page, $nb_page);
-
-function pagination($page, $nb_page, $listePage){
-
-$data = '<ul class="pagination">';
-$data. = '<li><a href="#">«</a></li>';
+?>
+<ul class="pagination">
+<li><a href="#">«</a></li>
+<?php
 	foreach( $listePage as $num )
 	{
 	   if( $num == $page )
-	      $data. = '<li class="active"><span>' . $num . '</span></li>';
+	      echo '<li class="active"><span>' . $num . '</span></li>';
 	   elseif( $num == '...' )
-	      $data. = '<li><a href="#" data-toggle="modal" data-target="#selectionPage"> ... </a></li>';
+	      echo '<li><a href="#" data-toggle="modal" data-target="#selectionPage"> ... </a></li>';
 	   else
-	      $data. = '<li><a href="' . $num . '">' . $num . '</a></li>';
+	      echo '<li><a href="' . $num . '">' . $num . '</a></li>';
 	}
-$data. = '<li><a href="#">»</a></li>';
-$data. = '</ul>';
-$data. = '
+?>
+<li><a href="#">»</a></li>
+</ul>
 
-<form action="javascript:alert( \'success!\' );">
+<form action="javascript:alert( 'success!' );">
 					<div class="modal fade" id="selectionPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					  <div class="modal-dialog">
 					    <div class="modal-content">
@@ -178,16 +166,15 @@ $data. = '
 					  </div>
 					</div>
 </form>
-';
+<?php
 
-	return $string;
-}
-
+	$myUser = login('test@test.com', 'test');
+	var_dump($myUser);
 ?>
 
 						</div>
 					</article>
 				</div>
 			</div>
-		</div>
+
 		

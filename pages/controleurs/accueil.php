@@ -15,8 +15,6 @@ $nb_page = ceil($nb_articles / CONTENU_PAGES);
 // On génére la liste des pages.
 $listePage = get_list_page($page, $nb_page);
 	
-	
-	
 //On inclut la vue
 include(dirname(__FILE__).'/'.VUES.'/accueil.php');
 ?>

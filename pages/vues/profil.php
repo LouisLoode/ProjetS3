@@ -2,12 +2,11 @@
 foreach($user as $data)
 {
 ?>
-		<div id="main" class="container">
 		<div id="content" class="content bg-base section">
 			<div class="ribbon ribbon-highlight">
 				<ol class="breadcrumb ribbon-inner">
-					<li><a href="index.php">Accueil</a></li>
-					<li><a href="index.php?page=utilisateurs">Utilisateurs</a></li>
+					<li><a href="index.html">Accueil</a></li>
+					<li><a href="utilisateurs.html">Utilisateurs</a></li>
 					<li class="active"><?php echo $data['nom_user']; ?></li>
 				</ol>
 			</div>
@@ -116,52 +115,11 @@ foreach($user as $data)
 
 					  <!-- Onglet articles -->
 					  <div class="tab-pane" id="articles">
-						<div class="entries profil">
+						 <div class="profil">
 						
 <?php
-foreach($article as $data)
-{	
-?>
-						<article class="entry style-media media type-post">
-
-							<figure class="media-object pull-left entry-thumbnail hidden-xs">
-
-								<!-- to disable lazy loading, remove data-src and data-src-retina -->
-								<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" class="" alt="">
-
-								<!--fallback for no javascript browsers-->
-								<noscript>
-									<img src="http://placehold.it/230x230" alt="">
-								</noscript>
-
-							</figure>
-
-							<div class="media-body">
-
-								<header class="entry-header">
-									<h3 class="entry-title">
-										<a href="single.html" rel="bookmark"><?php echo $data['titre']; ?></a>
-									</h3>
-
-									<div class="entry-meta">
-										<span class="author">by <a href="blog.html">John Doe</a></span>
-										<span class="entry-date"><a href="blog.html">on <time datetime="2013-07-04T23:26:34+00:00">September 20 2013</time></a></span>
-										<span class="category">In <a href="blog.html">Entertaintment</a></span>
-									</div>
-								</header>
-
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-									<a href="single.html" class="more-link">Continue Reading<i class="icon icon-long-arrow-right"></i></a>
-								</p>
-
-							</div>
-
-						</article>
-<?php
-}	
-?>
-						<hr/>
+include 'includes/articles.php';	
+?>	
 						
 						
 						</div>	
@@ -173,4 +131,3 @@ foreach($article as $data)
 			  </div>
 
 		</div>
-		</div><!--#main.container-->

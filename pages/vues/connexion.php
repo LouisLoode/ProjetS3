@@ -1,4 +1,4 @@
-		<div id="main" class="container">
+
 		<div id="content" class="content bg-base section">
 			
 		<div class="ribbon ribbon-highlight">
@@ -8,10 +8,6 @@
 						</ol>
 		</div>
 		<div class="row">
-
-
-
-		<?php include 'erreurs.php'; ?>
 
 					<header class="page-header col-md-10 col-md-offset-1">
 					
@@ -26,7 +22,7 @@
 					 <div class="col-md-6 col-md-offset-3">
 					    <h4 class="text-center">via votre compte DealerDeSons</h4>
 					    
-							<form role="form" method='post' action='<?php $_SERVER['PHP_SELF']?>'>
+							<form role="form" method="post" action="<?php $_SERVER['PHP_SELF']?>">
 								<div class="form-group">
 									<input type="text" name="email" id="email" class="form-control input-lg" placeholder="Adresse email" tabindex="3">
 								</div>
@@ -45,7 +41,7 @@
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-md-6"><input type="submit" value="Connexion" class="btn btn-success btn-block btn-lg" tabindex="7"><br /></div>
-									<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-danger btn-block btn-lg">Créer un compte</a><br /></div>
+									<div class="col-xs-12 col-md-6"><a href="inscription.html" class="btn btn-danger btn-block btn-lg">Créer un compte</a><br /></div>
 								</div>
 							</form>
 					</div>
@@ -55,5 +51,4 @@
 		</div>	
 
 		</div>
-			
-		</div><!--#main.container-->
+

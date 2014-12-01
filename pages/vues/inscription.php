@@ -11,7 +11,6 @@
     }
 ?>
 
-		<div id="main" class="container">
 		<div id="content" class="content bg-base section">
 		<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">
@@ -33,9 +32,9 @@
     <div class="col-md-6 col-md-offset-3">
     <h4 class="text-center">via ce formulaire</h4>
     
-		<form role="form">
+		<form role="form" method="post" action="<?php $_SERVER['PHP_SELF']?>">
 			<div class="form-group">
-				<input type="text" name="display_name" id="display_name" class="form-control input-lg" placeholder="Nom d'utilisateur" tabindex="3">
+				<input type="text" name="login" id="login" class="form-control input-lg" placeholder="Nom d'utilisateur" tabindex="3">
 			</div>
 			<div class="form-group">
 				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Adresse email" tabindex="4">
@@ -48,7 +47,7 @@
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirmer" tabindex="6">
+						<input type="password" name="password2" id="password_confirmation" class="form-control input-lg" placeholder="Confirmer" tabindex="6">
 					</div>
 				</div>
 			</div>
@@ -65,7 +64,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-md-6"><input type="submit" value="Créer un compte" class="btn btn-success btn-block btn-lg" tabindex="7"><br /></div>
-				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-danger btn-block btn-lg">Connexion</a><br /></div>
+				<div class="col-xs-12 col-md-6"><a href="index.php?page=connexion" class="btn btn-danger btn-block btn-lg">Connexion</a><br /></div>
 			</div>
 		</form>
 	</div>
@@ -90,13 +89,11 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">J'accepte</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 
-		</div>
-			
-		</div><!--#main.container-->
+</div>

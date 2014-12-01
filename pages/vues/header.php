@@ -50,7 +50,7 @@
 			<div class="header-navbar-inner container">
 			
 				<div id="brand" class="navbar-brand">
-					<a href="index.php" rel="bookmark">
+					<a href="index.html" rel="bookmark">
 
 						<!-- to disable lazy loading, remove data-src and data-src-retina -->
 						<img src="img/light-logo.png" data-src="img/light-logo.png" data-src-retina="img/logo-retina.png" width="244" height="56" alt="">
@@ -61,15 +61,6 @@
 						</noscript>
 					</a>
 				</div>
-
-				<ul class="nav nav-pages hidden-xs">
-					<li><a href="#">Accessibilité</a></li>
-					<li><a href="#">À propos</a></li>
-					<li><a href="#">Plan du site</a></li>
-					<li><a href="#">Mentions légales</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-				
 	
 				<ul class="nav nav-icons">
 					<li>
@@ -90,9 +81,7 @@
 				</div>
 
 				<ul class="nav navbar-nav">
-					<!--<li class="pull-right"><a href="#" class="btn btn-danger">Connexion</a></li>-->
-				
-				
+<?php if ($verif_connect){ ?>
 					<li class="nav-all pull-right full-subnav-wrapper">
 
 						<a href="#" data-toggle="li"> 
@@ -106,14 +95,13 @@
 								
 								<li class="active"><a href="#profil">Mon Profil</a></li>
 								<li><a href="#articles">Mes Articles</a></li>
-								<li><a href="#entites">Mes Entites</a></li>
-								<li><a href="deconnexion.php">Me Déconnecter</a></li>
+								<li><a href="deconnexion.html">Me déconnecter</a></li>
 								
 							</ul>
 
 							<div class="col-md-10 col-sm-10 subnav-tabbed-panels">
 
-								<div id="tabTous" class="subnav-tabbed-panel active">
+								<div id="profil" class="subnav-tabbed-panel">
 									
 									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
 
@@ -132,63 +120,10 @@
 										<h3 class="entry-title"><a href="single.html">AAA Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
 									
 									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
 									
 								</div>
-								<div id="tabAfterMovies" class="subnav-tabbed-panel">
+								
+								<div id="articles" class="subnav-tabbed-panel">
 									
 									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
 
@@ -204,372 +139,24 @@
 											</a>
 										</figure>
 
-										<h3 class="entry-title"><a href="single.html">BB Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
+										<h3 class="entry-title"><a href="single.html">AAA Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
 									
 									</article>
 									
 								</div>
-								<div id="tabFreestyles" class="subnav-tabbed-panel">
-									
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
 
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-													<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">CCC Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Tout voir</a> </h3>
-									
-									</article>
-									<button type="button" class="btn btn-default btn-lg">
-
-									</button>
-								</div>
-								<div id="tabInterviewsVideo" class="subnav-tabbed-panel">
-									
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-													<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-									
-								</div>
-								<div id="tabSessionLive" class="subnav-tabbed-panel">
-									
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-													<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-									
-								</div>
-								<div id="tabSessionMix" class="subnav-tabbed-panel">
-									
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-													<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-												<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-
-								</div>
 							</div>
 
 						</div>
 					</li>
 					
+<?php }else{?>
+
+					<li class="pull-right"><a href="connexion.html" class="btn btn-danger">Connexion</a></li>	
+<?php } ?>
+				
+				
+
 
 					<li class="nav-all visible-xs visible-sm visible-md full-subnav-wrapper active">
 
@@ -608,6 +195,7 @@
 
 
 <?php
+// On fait la boucle qui génére le menu.
 foreach($categories_menu as $data)
 {
 ?>
@@ -620,3 +208,8 @@ foreach($categories_menu as $data)
 			</div>
 
 		</nav>
+
+		<div id="main" class="container">
+			
+				
+				<?php include 'includes/messages_erreurs.php'; ?>

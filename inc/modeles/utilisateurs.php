@@ -9,8 +9,10 @@ function login($email, $password) {
 	$myUser = array();
 	
 	// Préparation de la requête
-	$myRequete='SELECT nom_user, email, id_user FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
-	var_dump($myRequete);
+	//$myRequete='SELECT nom_user, email, id_user FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
+	
+	$myRequete='SELECT nom_user, email, id_user FROM utilisateurs WHERE email="'.$email.'" and password="'.$password.'";';
+	// var_dump($myRequete);
 	
 	// Execution de la requête
 	$myCols=mysqli_query($myConnexion,$myRequete);
@@ -18,6 +20,7 @@ function login($email, $password) {
 		while($row = mysqli_fetch_array($myCols)){
 			$myUser['email'] = $row['email'];
 			$myUser['id_user'] = $row['id_user'];
+			$myUser['nom_user'] = $row['nom_user'];
 		}
 		//var_dump($myCols);
 		//var_dump($myUser);

@@ -33,6 +33,14 @@ function disconnect($connexion) {
 	mysqli_close($connexion);
 }
 
+//Fonction qui effectue les requêtes dans la bdd
+function requete($myRequete) {
+	global $query_count, $myConnexion;
+		
+		$query_count++;
+	
+	return mysqli_query($myConnexion,$myRequete);
+}
 
 
 function code_alea(){
@@ -69,6 +77,9 @@ function get_list_page($page, $nb_page, $nb = 3){
 function message($msg, $type=0)
 {
 	global $alerts;
+		
+		// On crée la session qui gére les alerts.
+		//$_SESSION['alerts'] = array();
 	
 		// On gére les types de messages
 		$class = array('info', 'success', 'warning', 'danger'); // pour le css.
@@ -77,8 +88,7 @@ function message($msg, $type=0)
 	  	$nouvelleAlert = array('TITRE' => $titre[$type],
 	  							'CSS' => 'alert-'.$class[$type],
 	  							'MESSAGE' => $msg);
-	  	$alerts[] = $nouvelleAlert;	
+	  	$_SESSION['alerts'][] = $nouvelleAlert;	
         
-	return $alerts;
 }
 ?>

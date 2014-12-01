@@ -1,6 +1,13 @@
 <?php
+	
+// Enclenche la temporisation de sortie
+ob_start(); 
+
 // On démarre la session
 session_start();
+
+// Relever l'heure de départ du script.
+$timestart = microtime(true);
 
 // On veut afficher toutes les erreurs
 //ini_set('display_errors', 1);
@@ -10,9 +17,6 @@ include 'inc/config.php';
 
 // On se connecte à la BDD
 include 'inc/fonctions.php';
-
-// On initialise le tableau qui gére les messages d'erreur.
-$alerts = array();
 
 // Connexion à la BDD via la fonction définie dans config.php
 $myConnexion = connect();
@@ -36,7 +40,10 @@ else
 // On appelle le bas de la page
 include 'pages/vues/footer.php';
  
- 
+
 // On se déconnecte de la BDD
 disconnect($myConnexion);
+
+// Envoie le tampon de sortie
+ob_flush(); 
 ?>

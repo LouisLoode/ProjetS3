@@ -1,4 +1,4 @@
-
+		</div><!--#main.container-->
 
 
 
@@ -55,12 +55,24 @@
 				</div><!--row.-->
 
 			</div>
+<?php
 
+// Relever l'heure de fin d'execution du script
+$timeend = microtime(true);
+
+// On fait la différence (temps d'executiond de la page)
+$time = $timeend - $timestart;
+
+//Afficher le temps d'éxecution
+$page_load_time = number_format($time, 3);
+	
+?>
 			<div class="footer-bottom">
 
 				<div class="container aligncenter">
 
 					<p>&copy;2012-2014 par <a href="http://dealerdesons.com">DealerDeSons</a>. Tout droits réservés. <p>
+					<p>Page exécutée en <?php echo $page_load_time; ?> sec - ?? Requêtes SQL</p>
 
 				</div>
 

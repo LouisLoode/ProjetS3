@@ -4,7 +4,7 @@ foreach($article as $data)
 {
 	
 ?>
-		<div id="main" class="container">
+		
 
 			<div class="section section-no-margin-bottom row entries bg-primary">
 
@@ -70,8 +70,8 @@ foreach($article as $data)
 
 					<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">
-							<li><a href="index.php">Accueil</a></li>
-							<li><a href="index.php?page=categoriess&id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></li>
+							<li><a href="index.html">Accueil</a></li>
+							<li><a href="index.php?page=categories&id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></li>
 							<li class="active" title="<?php echo $data['titre']; ?>"><?php echo $data['titre']; ?></li>
 						</ol>
 					</div>
@@ -453,8 +453,7 @@ foreach($article as $data)
 ?>
 
 <?php
-include('sidebar.php');
+include('includes/sidebar.php');
 ?>
 			</div><!--/#content-->
 			
-		</div><!--#main.container-->

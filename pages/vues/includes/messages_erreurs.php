@@ -1,4 +1,9 @@
-<?php		
+<?php
+if($verif_alerts){
+	$alerts = $_SESSION['alerts'];
+}	
+	
+	
 // Gestion des messages d'alerte
 foreach($alerts as $data)
 {
@@ -7,6 +12,8 @@ foreach($alerts as $data)
   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Fermer</span></button>
   <strong>'.$data['TITRE'].'</strong> '.$data['MESSAGE'].'
 </div>';
-
 }
+
+unset($_SESSION['alerts']);
+
 ?>

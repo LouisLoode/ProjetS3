@@ -10,7 +10,7 @@ function login($email, $password) {
 	
 	// Préparation de la requête
 	$myRequete='SELECT nom_user, email, id_user FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
-	//var_dump($myRequete);
+	var_dump($myRequete);
 	
 	// Execution de la requête
 	$myCols=mysqli_query($myConnexion,$myRequete);

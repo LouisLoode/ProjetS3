@@ -1,6 +1,7 @@
 <?php
 
 //Vérifier les identifiants pour se connecter à la BDD
+
 function ajout_article($titre, $contenu, $id_user) {
 	
 	// La fonction de connexion doit rester active durant tout le script.
@@ -24,7 +25,7 @@ function ajout_article($titre, $contenu, $id_user) {
 }
 
 //Afficher la liste des catégories
-function liste_categories(){
+function liste_categories($menu='', $by=''){
 	
 	// La fonction de connexion doit rester active durant tout le script.
 	global $myConnexion;
@@ -32,17 +33,57 @@ function liste_categories(){
 	
 	// Création du tableau
 	$categories = array();
+	
+	$req_menu = '';
+	
+	$order_by = '';
+	
+	$limit = '';
 
 	//var_dump($id_auteur);
+	
+	switch ($menu) // On veut trier les articles
+	{ 
+	// Par date
+	case 'menu':
+        $req_menu = 'WHERE menu = 1';
+    break;
+    // Par auteur
+    case 'pas-menu':
+        $req_menu = 'WHERE menu = 0';
+    break;
+    // Sinon
+    default:
+        $req_menu = '';
+	}
+	
+	switch ($by) // On veut trier les articles
+	{ 
+	// Par date
+	case 'croissant':
+        $order_by = 'ORDER BY ordre ASC';
+    break;
+    // Par auteur
+    case 'decroissant':
+        $order_by = 'ORDER BY ordre DESC';
+    break;
+    // Sinon
+    default:
+        $order_by = '';
+	}
+		
+	// On prépare le bidouillage de la requête.
+	$ajoutRequete = $req_menu.' '.$order_by.' '.$limit.'';	
 
 	// Préparation de la requête
 	$myRequete = 'SELECT *
-					FROM categories';
+					FROM categories
+					'.$ajoutRequete;
 	//var_dump($myRequete);			
 
 
 	// Lancement de la requête
-	$req=mysqli_query($myConnexion,$myRequete);
+	$req = mysqli_query($myConnexion,$myRequete);
 	//var_dump($myCols);
 
 
@@ -110,17 +151,19 @@ function liste_articles($by='autre', $id_cat='', $id_user='', $limit=''){
 	$myRequete = 'SELECT *
 					FROM articles, utilisateurs, categories, articles_categories
 					WHERE articles.id_user = utilisateurs.id_user 
+					AND articles.statut = "1"
 					AND articles_categories.id_article = articles.id_article
 					AND  articles_categories.id_cat = categories.id_cat
 					'.$ajoutRequete;
-	echo 'Affichage variable requête articles: <br />';
-	var_dump($myRequete);			
+	 //var_dump($myRequete);			
 
 
 	// Lancement de la requête
-	$req=mysqli_query($myConnexion,$myRequete);
+	$req = mysqli_query($myConnexion,$myRequete);
 	//var_dump($myCols);
-
+//$articles['nb_lignes'] = mysqli_num_rows($req);
+	
+	
 
 		// Boucle qui stocke les résultats dans un tableau
         while ($data = mysqli_fetch_assoc($req))
@@ -170,11 +213,6 @@ function articles_par_categories($id_cat){
         return $articles;
 
 }
-	
-
-
-
-
 
 //Afficher la liste des articles par utilisateurs
 function articles_par_utilisateur($id_user){

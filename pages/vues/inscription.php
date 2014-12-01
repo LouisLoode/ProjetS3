@@ -1,7 +1,4 @@
 <?php
-	
-include('header.php');
-
 	if ($i!=0)
    	{
         echo'<h1>Inscription interrompue</h1>';
@@ -12,16 +9,14 @@ include('header.php');
         echo'<p>'.$email_erreur1.'</p>';
         echo'<p>'.$email_erreur2.'</p>';
     }
-
 ?>
 
 		<div id="main" class="container">
 		<div id="content" class="content bg-base section">
 		<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Features</a></li>
-							<li class="active">Blog 2 Columns</li>
+							<li><a href="index.php">Accueil</a></li>
+							<li class="active">Inscription</li>
 						</ol>
 					</div>
 
@@ -35,7 +30,7 @@ include('header.php');
 						</h2>
 
 					</header>
-    <div class="col-xs-12 col-sm-6 col-md-6">
+    <div class="col-md-6 col-md-offset-3">
     <h4 class="text-center">via ce formulaire</h4>
     
 		<form role="form">
@@ -74,16 +69,7 @@ include('header.php');
 			</div>
 		</form>
 	</div>
-    <div class="col-xs-12 col-sm-6 col-md-6">
-		<h4 class="text-center">via Facebook, Twitter, Google+ ou Soundcloud</h4>
-							<!-- Partie affichage bureau -->
-			
-					<div class="col-md-12 text-center"><a class="btn btn-lg btn-facebook" href="#"><i class="fa fa-facebook"></i> Inscription via Facebook</a></div>
-					<div class="col-md-12 text-center"><a class="btn btn-lg btn-twitter" href="#"><i class="fa fa-twitter"></i> Inscription via Twitter</a></div>
-					<div class="col-md-12 text-center"><a class="btn btn-lg btn-youtube" href="#"><i class="fa fa-youtube"></i> Inscription via Youtube</a></div>
-					<div class="col-md-12 text-center"><a class="btn btn-lg btn-soundcloud" href="#"><i class="fa fa-soundcloud"></i> Inscription via Souncloud</a></div>
-		
-					
+    					
 	</div>
 </div>
 <!-- Modal -->
@@ -114,8 +100,3 @@ include('header.php');
 		</div>
 			
 		</div><!--#main.container-->
-
-
-<?php
-include('footer.php');
-?>

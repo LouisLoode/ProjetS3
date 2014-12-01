@@ -70,16 +70,16 @@
 						</div><!--/.carousel-inner-->
 
 						<a class="left carousel-control" href="#reviewCarousel" data-slide="prev">
-							<span class="icon icon-angle-left"></span>
+							<i class="fa fa-angle-left"></i>
 						</a>
 						<a class="right carousel-control" href="#reviewCarousel" data-slide="next">
-							<span class="icon icon-angle-right"></span>
+							<i class="fa fa-angle-right"></i>
 						</a>
 
 					</aside>
 				<aside class="widget">
 
-						<h2 class="widget-title ribbon"><span>Les plus vus dans cette catégorie</span></h2>
+						<h2 class="widget-title ribbon"><span>Les mieux notés</span></h2>
 
 						<div class="entries row">
 
@@ -315,56 +315,7 @@
 						</div>
 
 					</aside>
-				<aside class="widget ad-wrapper">
-						<div class="ad-inner">
-							<div class="ad ad-200x125">
-								<a href="https://wrapbootstrap.com/e" rel="nofollow"><img src="http://placehold.it/200x125&amp;text=200x125%20banner" alt=""></a>
-							</div>
-						</div>
-					</aside>
-				<aside class="widget">
 
-								<h3 class="widget-title ribbon ribbon-focus"><span>TAGS</span></h3>
-
-								<div class="tagcloud">
-									<a href="#">Some</a>
-									<a href="#">Tag</a>
-									<a href="#">Goes</a>
-									<a href="#">Here</a>
-									<a href="#">Utempor</a>
-									<a href="#">Incididunt</a>
-									<a href="#">Labore</a>
-									<a href="#">Dolore</a>
-									<a href="#">Magna</a>
-									<a href="#">Aliqua</a>
-									<a href="#">Seddo</a> 
-									<a href="#">Siusmod</a>
-									<a href="#">Tempor</a>
-									<a href="#">Incididunt</a>
-									<a href="#">Ut labore</a>
-									<a href="#">Et dolore </a>
-									<a href="#">Magna </a>
-									<a href="#">Aliqua</a>
-									<a href="#">Aliqua</a>
-									<a href="#">Seddo</a> 
-									<a href="#">Siusmod</a>
-									<a href="#">Tempor</a>
-									<a href="#">Incididunt</a>
-									<a href="#">Ut labore</a>
-									<a href="#">Et dolore </a>
-									<a href="#">Magna </a>
-									<a href="#">Aliqua</a>
-								</div>
-
-							</aside>
-
-<aside class="widget ad-wrapper">
-						<div class="ad-inner">
-							<div class="ad ad-200x125">
-								<a href="https://wrapbootstrap.com/e" rel="nofollow"><img src="http://placehold.it/200x125&amp;text=200x125%20banner" alt=""></a>
-							</div>
-						</div>
-					</aside>
 				</div><!--/.sidebar col-md-4 col-lg-4 col-xl-3-->
 
 				</div><!--/.sidebar col-md-4 col-lg-4 col-xl-3-->

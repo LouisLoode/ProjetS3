@@ -31,7 +31,7 @@
 									<input type="text" name="email" id="email" class="form-control input-lg" placeholder="Adresse email" tabindex="3">
 								</div>
 								<div class="form-group">
-									<input type="password" name="password" class="form-control input-lg" id="password" placeholder="Mot de passe" tabindex="4">
+									<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Mot de passe" tabindex="4">
 									<p class="text-right"><a href="#">Mot de passe oublié ?</a></p>
 								</div>
 								<div class="form-group">

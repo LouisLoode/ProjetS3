@@ -2,9 +2,6 @@
 // On démarre la session
 session_start();
 
-// On définit l'encodage en UTF-8
-header('Content-type: text/html; charset=utf-8');
-
 // On veut afficher toutes les erreurs
 //ini_set('display_errors', 1);
 
@@ -17,9 +14,11 @@ include 'inc/fonctions.php';
 // On initialise le tableau qui gére les messages d'erreur.
 $alerts = array();
 
- 
 // Connexion à la BDD via la fonction définie dans config.php
 $myConnexion = connect();
+
+// On se initialise les paramêtre de base
+include 'inc/init.php';
 
 // On appelle le haut de la page
 include 'pages/vues/header.php';

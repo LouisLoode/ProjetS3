@@ -14,6 +14,8 @@ $Db_password='root';
 $Db_name='root';*/
 
 
+define('CONTENU_PAGES', '10');
+
 // Chemins vers les différents chemins utiles au fonctionnement du site
 define('MODELE', '../../inc/modeles');
 define('VUES', '../vues');

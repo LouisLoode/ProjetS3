@@ -553,3 +553,11 @@ span.tags
     margin-left: -10px;
     z-index: 10;
     }
+    
+    
+    
+.pagination > li.active > span, .pagination > li.active > span:hover, .pagination > li a:hover {
+background-color: transparent;
+color: #000000;
+font-size: larger;
+}

@@ -16,6 +16,11 @@ if (get_magic_quotes_gpc() == 1)
 function connect() {
 	//$connexion = new mysqli('localhost','test','test','blogmmi');
 	$connexion = new mysqli(DB_SERVER,DB_PASSWORD,DB_USER,DB_NAME);
+	
+	
+	// On précise à mysql que l'on veut utiliser l'utf-8
+	$req = mysqli_query($connexion, "SET NAMES 'utf8'");
+	
 	//var_dump($connexion);
 	if($connexion->connect_errno){
 		$connexion = 'Erreur Db('.connect_errno.')'.$connexion->connect_error;
@@ -39,6 +44,26 @@ function chiffre_alea(){
 	$string = mt_rand(111,999);
 	return $string;
 }
+
+
+
+
+function get_list_page($page, $nb_page, $nb = 3){
+    $list_page = array();
+    for ($i=1; $i <= $nb_page; $i++){
+        if (($i < $nb) OR ($i > $nb_page - $nb) OR (($i < $page + $nb) AND ($i > $page -$nb)))
+            $list_page[] = $i;
+        else{
+            if ($i >= $nb AND $i <= $page - $nb)
+                $i = $page - $nb;
+            elseif ($i >= $page + $nb AND $i <= $nb_page - $nb)
+                $i = $nb_page - $nb;
+            $list_page[] = '...';
+        }
+    }
+    return $list_page;
+}
+
 
 // Fonction qui gére tout les messages
 function message($msg, $type=0)

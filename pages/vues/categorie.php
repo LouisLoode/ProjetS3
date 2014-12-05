@@ -29,7 +29,18 @@
 if($nb_articles > 0){
 include 'includes/articles.php';	
 
-?>	
+}else{
+?>
+
+<div class="col-md-12 text-center">
+	<p>Il n'y a pas d'articles actuellement dans cette catégorie</p>
+</div>
+
+
+
+<?php
+}
+?>
 								
 					</div><!--/.entris-->
 
@@ -38,15 +49,6 @@ include 'includes/articles.php';
 <?php
 
 include('includes/sidebar.php');
-}else{
-?>
-
-<div class="col-md-12 text-center">
-	<p>Il n'y a pas d'articles actuellement dans cette catégorie</p>
-</div>
-
-<?php
-}
 ?>
 
 			</div><!--/#content-->

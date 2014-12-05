@@ -64,7 +64,7 @@ if($_POST){
 	if ($i==0)
    	{
 
-		$myUser = inscription($_POST['login'], $_POST['email'], $_POST['password']);
+		$myUser = creation_user($_POST['login'], $_POST['email'], $_POST['password']);
 		//var_dump($myUser);
 		
 		$alert = message('Votre inscription s\'est bien déroulée.', 1);

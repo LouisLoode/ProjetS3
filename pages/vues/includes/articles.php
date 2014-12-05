@@ -22,20 +22,20 @@ foreach($articles as $data)
 
 								<header class="entry-header">
 									<h3 class="entry-title">
-										<a href="index.php?page=articles&amp;id=<?php echo $data['id_article'];?>" rel="bookmark"><?php echo $data['titre']; ?></a>
+										<a href="articles-<?php echo $data['id_article'];?>.html" rel="bookmark"><?php echo $data['titre']; ?></a>
 									</h3>
 
 									<div class="entry-meta">
-										<span class="author">par <a href="index.php?page=utilisateurs&amp;id=<?php echo $data['id_user']; ?>"><?php echo $data['nom_user']; ?></a></span>
-										<span class="entry-date"><a href="index.php?page=articles&amp;id=<?php echo $data['id_article']; ?>">le <time datetime="<?php echo $data['date']; ?>"><?php echo $data['date']; ?></time></a></span>
-										<span class="category">Dans <a href="index.php?page=categories&amp;id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></span>
+										<span class="author">par <a href="utilisateurs-<?php echo $data['id_user']; ?>.html"><?php echo $data['nom_user']; ?></a></span>
+										<span class="entry-date"><a href="articles-<?php echo $data['id_article']; ?>.html">le <time datetime="<?php echo $data['date']; ?>"><?php echo $data['date']; ?></time></a></span>
+										<span class="category">Dans <a href="categorie-<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></span>
 									</div>
 								</header>
 
 								<p>
 									<?php echo substr($data['contenu'],0,300);?>
 									<p>Note: <?php echo $data['note']; ?>/10</p>
-									<a href="index.php?page=articles&amp;id=<?php echo $data['id_article'];?>" class="more-link">Lire la suite<i class="icon icon-long-arrow-right"></i></a>
+									<a href="articles-<?php echo $data['id_article'];?>.php" class="more-link">Lire la suite<i class="icon icon-long-arrow-right"></i></a>
 								</p>
 
 							</div>

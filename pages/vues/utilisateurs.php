@@ -39,9 +39,9 @@
 		{
 		?>
 		                    <tr>
-		                        <td><a href="index.php?page=utilisateurs&amp;id=<?php echo $data['id_user']; ?>"><?php echo $data['id_user']; ?></a></td>
-		                        <td><a href="index.php?page=utilisateurs&amp;id=<?php echo $data['id_user']; ?>"><?php echo $data['nom_user']; ?></a></td>
-		                        <td><a href="index.php?page=utilisateurs&amp;id=<?php echo $data['id_user']; ?>"><?php echo $data['email']; ?></a></td>
+		                        <td><a href="utilisateurs-0-<?php echo $data['id_user']; ?>.html"><?php echo $data['id_user']; ?></a></td>
+		                        <td><a href="utilisateurs-0-<?php echo $data['id_user']; ?>.html"><?php echo $data['nom_user']; ?></a></td>
+		                        <td><a href="utilisateurs-0-<?php echo $data['id_user']; ?>.html"><?php echo $data['email']; ?></a></td>
 		                        <td>Rôle</td>
 		                    </tr>
 		<?php

@@ -9,9 +9,8 @@ function login($email, $password) {
 	$myUser = array();
 	
 	// Préparation de la requête
-	//$myRequete='SELECT nom_user, email, id_user FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
 	
-	$myRequete = 'SELECT nom_user, email, id_user FROM utilisateurs WHERE email="'.$email.'" and password="'.$password.'";';
+	$myRequete = 'SELECT nom_user, email, id_user FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
 	// var_dump($myRequete);
 	
 	// Execution de la requête
@@ -28,7 +27,49 @@ function login($email, $password) {
 }
 
 //Vérifier les identifiants pour se connecter à la BDD
-function inscription($login, $email, $password) {
+function creation_user($login, $email, $password) {
+	
+	// La fonction de connexion doit rester active durant tout le script.
+	global $myConnexion;
+	
+	// Préparation de la requête
+	$myRequete = 'SELECT nom_user, email, id_profil FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
+	
+
+	$myRequete='INSERT INTO utilisateurs ( id_user , nom_user , password , email , date_inscription )
+        VALUES ("", "'.$login.'", PASSWORD("'.$password.'"), "'.$email.'", NOW() );';
+	//var_dump($myRequete);
+	
+	// Execution de la requête
+	$myCols = requete($myRequete);
+
+
+		//return $myUser;
+}
+
+//Vérifier les identifiants pour se connecter à la BDD
+function verif_inscription($login, $email, $password) {
+	
+	// La fonction de connexion doit rester active durant tout le script.
+	global $myConnexion;
+	
+	// Préparation de la requête
+	$myRequete = 'SELECT nom_user, email, id_profil FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
+	
+
+	$myRequete='INSERT INTO utilisateurs ( id_user , nom_user , password , email , date_inscription )
+        VALUES ("", "'.$login.'", PASSWORD("'.$password.'"), "'.$email.'", NOW() );';
+	//var_dump($myRequete);
+	
+	// Execution de la requête
+	$myCols = requete($myRequete);
+
+
+		//return $myUser;
+}
+
+// Modifie le profil de l'utilisateur
+function modif_profil($login, $email, $nom_user, $bio, $facebook, $twitter, $instagram, $vimeo, $tumblr, $linkedin, $soundcloud, $youtube) {
 	
 	// La fonction de connexion doit rester active durant tout le script.
 	global $myConnexion;

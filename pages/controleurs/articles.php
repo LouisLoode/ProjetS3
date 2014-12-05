@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
 	$id_article = $_GET['id'];
 	
 	//Préparation de la requête
-	$article = display_article($id_article);
+	$data = display_article($id_article);
 	
 	//On inclut la vue
 	include(dirname(__FILE__).'/'.VUES.'/article.php'); 

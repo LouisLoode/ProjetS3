@@ -14,4 +14,13 @@
 	
 	// On initialise le tableau qui gére les messages d'erreur.
 	$alerts = array();
+	
+	// Si le mec est connecté on récupére ses infos.
+	if ($verif_connect){ 
+		$data = display_utilisateur($_SESSION['id']);
+		//var_dump($data);
+		
+		$user = $data['0'];			
+	}
+ 
 ?>

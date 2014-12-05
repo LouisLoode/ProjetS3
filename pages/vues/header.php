@@ -82,72 +82,19 @@
 
 				<ul class="nav navbar-nav">
 <?php if ($verif_connect){ ?>
-					<li class="nav-all pull-right full-subnav-wrapper">
-
+					<li class="nav-all pull-right">
 						<a href="#" data-toggle="li"> 
-							<span class="img"><img src="img/Tests/avatar.jpg" alt="Avatar"></span>
+							<span class="img"><img src="img/Tests/avatar.jpg" alt="Avatar de <?php echo $user['id_user'];?>"></span>
 						</a>
 
-						<div class="row subnav-wrapper subnav-tabbed">
-							
-							
-							<ul class="col-md-2 col-sm-2 subnav-tabbed-tabs alignright">
-								
-								<li class="active"><a href="#profil">Mon Profil</a></li>
+						<div class="subnav-wrapper">
+							<ul class="subnav-entries">
+								<li><a href="utilisateur-modifier.html">Modifier mon Profil</a></li>
 								<li><a href="#articles">Mes Articles</a></li>
 								<li><a href="deconnexion.html">Me déconnecter</a></li>
-								
 							</ul>
-
-							<div class="col-md-10 col-sm-10 subnav-tabbed-panels">
-
-								<div id="profil" class="subnav-tabbed-panel">
-									
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-													<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">AAA Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-									
-								</div>
-								
-								<div id="articles" class="subnav-tabbed-panel">
-									
-									<article class="entry type-post style-thumbnail col-sm-3 col-md-3">
-
-										<figure class="entry-thumbnail">
-											<a href="single.html">
-													<!-- to disable lazy loading, remove data-src and data-src-retina -->
-												<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" alt="">
-
-												<!--fallback for no javascript browsers-->
-												<noscript>
-													<img src="http://placehold.it/230x230" alt="">
-												</noscript>
-											</a>
-										</figure>
-
-										<h3 class="entry-title"><a href="single.html">AAA Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a> </h3>
-									
-									</article>
-									
-								</div>
-
-							</div>
-
 						</div>
+
 					</li>
 					
 <?php }else{?>
@@ -173,7 +120,7 @@
 									foreach($categories_menu as $data)
 									{
 									?>
-									<li><a href="index.php?page=categories&id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></li>
+									<li><a href="index.php?page=categories&amp;id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></li>
 									<?php
 									}
 									?>
@@ -199,7 +146,7 @@
 foreach($categories_menu as $data)
 {
 ?>
-					<li class="visible-md visible-lg"><a href="index.php?page=categories&id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></li>
+					<li class="visible-md visible-lg"><a href="index.php?page=categories&amp;id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></li>
 <?php
 }
 ?>

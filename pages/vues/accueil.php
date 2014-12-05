@@ -29,7 +29,7 @@
 						<a href="single.html" class="overlay overlay-primary"></a>
 
 						<!-- to disable lazy loading, remove data-src and data-src-retina -->
-						<img src="img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="">
+						<img src="img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="" />
 
 						<!--fallback for no javascript browsers-->
 						<noscript>
@@ -40,6 +40,7 @@
 
 				</article>
 
+				
 				<article class="entry style-grid style-hero type-post col-md-6 col-lg-3 colheight-sm-1">
 					
 					<div class="ribbon ribbon-pulled ribbon-small ribbon-highlight">
@@ -64,36 +65,6 @@
 						<!--fallback for no javascript browsers-->
 						<noscript>
 							<img src="http://placehold.it/480x280" alt="">
-						</noscript>
-
-					</figure>
-
-				</article>
-
-				<article class="entry style-grid style-hero type-post col-md-6 col-lg-3 colheight-sm-1">
-					
-					<div class="ribbon ribbon-pulled ribbon-small ribbon-highlight">
-						<a href="blog.html">Dernière Mixtape</a>
-					</div>
-
-					<header class="entry-header">
-						<h3 class="entry-title"><a href="single.html">Rumor: The long awaited update for Retina Display is ready to be annaunced on the next event held by them</a> </h3>
-						<div class="entry-meta">
-							<span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-							<span class="entry-author"> by <a href="profil.php">John Doe</a></span>
-						</div>
-					</header>
-					
-					<figure class="entry-thumbnail">
-
-						<a href="single.html" class="overlay overlay-primary"></a>
-
-						<!-- to disable lazy loading, remove data-src and data-src-retina -->
-						<img src="img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="">
-
-						<!--fallback for no javascript browsers-->
-						<noscript>
-							<img src="http://placehold.it/680x452" alt="">
 						</noscript>
 
 					</figure>
@@ -133,7 +104,7 @@
 				<article class="entry style-grid style-hero type-post col-md-6 col-lg-3 colheight-sm-1">
 					
 					<div class="ribbon ribbon-pulled ribbon-small ribbon-highlight">
-						<a href="blog.html">Dernière Playlist</a>
+						<a href="blog.html">Dernier Article</a>
 					</div>
 
 					<header class="entry-header">
@@ -160,6 +131,36 @@
 
 				</article>
 
+								<article class="entry style-grid style-hero type-post col-md-6 col-lg-3 colheight-sm-1">
+					
+					<div class="ribbon ribbon-pulled ribbon-small ribbon-highlight">
+						<a href="blog.html">Dernière Séléction</a>
+					</div>
+
+					<header class="entry-header">
+						<h3 class="entry-title"><a href="single.html">Rumor: The long awaited update for Retina Display is ready to be annaunced on the next event held by them</a> </h3>
+						<div class="entry-meta">
+							<span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
+							<span class="entry-author"> by <a href="profil.php">John Doe</a></span>
+						</div>
+					</header>
+					
+					<figure class="entry-thumbnail">
+
+						<a href="single.html" class="overlay overlay-primary"></a>
+
+						<!-- to disable lazy loading, remove data-src and data-src-retina -->
+						<img src="img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="">
+
+						<!--fallback for no javascript browsers-->
+						<noscript>
+							<img src="http://placehold.it/680x452" alt="">
+						</noscript>
+
+					</figure>
+
+				</article>
+				
 			</div>
 
 			<div id="content" class="content section row">

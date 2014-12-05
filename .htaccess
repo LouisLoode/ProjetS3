@@ -3,8 +3,16 @@
 </IfModule>
 
 RewriteEngine On
- 
-RewriteRule ^([a-zA-Z0-9\-&]+).html$            index.php?page=$1 [QSA,L]
+
+# URL rewrite général
+RewriteRule ^([a-zA-Z0-9\&]+).html$            					index.php?page=$1 [QSA,L]
+
+# URL général qui prend en compte les pages
+RewriteRule ^([a-zA-Z0-9\&]+)-([0-9]+).html$            					index.php?page=$1&p=$2 [QSA,L]
+
+# URL rewrite des utilisateurs
+RewriteRule ^utilisateur-voir-([0-9]+).html$             index.php?page=utilisateurs&action=voir&id=$2 [QSA,L]
+RewriteRule ^utilisateur-modifier.html$             	index.php?page=utilisateurs&action=modifier [QSA,L]
 
 
 # Frame de validation

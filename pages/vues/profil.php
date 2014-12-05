@@ -1,13 +1,10 @@
-<?php
-foreach($user as $data)
-{
-?>
+
 		<div id="content" class="content bg-base section">
 			<div class="ribbon ribbon-highlight">
 				<ol class="breadcrumb ribbon-inner">
 					<li><a href="index.html">Accueil</a></li>
 					<li><a href="utilisateurs.html">Utilisateurs</a></li>
-					<li class="active"><?php echo $data['nom_user']; ?></li>
+					<li class="active"><?php echo $user_infos['nom_user']; ?></li>
 				</ol>
 			</div>
 		<div class="row">
@@ -18,55 +15,55 @@ foreach($user as $data)
 			           <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img-thumbnail picture hidden-xs" />
 			           <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img-thumbnail visible-xs picture_mob" />
 			           <div class="header">
-			                <h1><?php echo $data['nom_user']; ?></h1>
+			                <h1><?php echo $user_infos['nom_user']; ?></h1>
 			                <h4>Web Developer</h4>
 			                <div class="reseaux-sociaux">
 				    <?php
-					    if($data['facebook'] != ''){
+					    if($user_infos['facebook'] != ''){
 					?>
-			        <a class="btn btn-facebook-profile" href="<?php echo $data['facebook']; ?>"><i class="fa fa-facebook"></i></a>
+			        <a class="btn btn-facebook-profile" href="<?php echo $user_infos['facebook']; ?>"><i class="fa fa-facebook"></i></a>
 			        <?php } ?>
 			        
 			        <?php
-					    if($data['twitter'] != ''){
+					    if($user_infos['twitter'] != ''){
 					?>
-					<a class="btn btn-twitter-profile" href="<?php echo $data['twitter']; ?>"><i class="fa fa-twitter"></i></a>
+					<a class="btn btn-twitter-profile" href="<?php echo $$user_infos['twitter']; ?>"><i class="fa fa-twitter"></i></a>
 					<?php } ?>
 					
 					<?php
-					    if($data['instagram'] != ''){
+					    if($user_infos['instagram'] != ''){
 					?>
-					<a class="btn btn-instagram-profile" href="<?php echo $data['instagram']; ?>"><i class="fa fa-instagram"></i></a>
+					<a class="btn btn-instagram-profile" href="<?php echo $$user_infos['instagram']; ?>"><i class="fa fa-instagram"></i></a>
 					<?php } ?>
 					
 					<?php
-					    if($data['vimeo'] != ''){
+					    if($user_infos['vimeo'] != ''){
 					?>
-					<a class="btn btn-vimeo-profile" href="<?php echo $data['vimeo']; ?>"><i class="fa fa-vimeo-square"></i></a>
+					<a class="btn btn-vimeo-profile" href="<?php echo $$user_infos['vimeo']; ?>"><i class="fa fa-vimeo-square"></i></a>
 					<?php } ?>
 					
 					<?php
-					    if($data['tumblr'] != ''){
+					    if($user_infos['tumblr'] != ''){
 					?>
-					<a class="btn btn-tumblr-profile" href="<?php echo $data['tumblr']; ?>"><i class="fa fa-tumblr"></i></a>
+					<a class="btn btn-tumblr-profile" href="<?php echo $user_infos['tumblr']; ?>"><i class="fa fa-tumblr"></i></a>
 					<?php } ?>
 					
 					<?php
-					    if($data['linkedin'] != ''){
+					    if($user_infos['linkedin'] != ''){
 					?>
-					<a class="btn btn-linkedin-profile" href="<?php echo $data['linkedin']; ?>"><i class="fa fa-linkedin-square"></i></a>
+					<a class="btn btn-linkedin-profile" href="<?php echo $user_infos['linkedin']; ?>"><i class="fa fa-linkedin-square"></i></a>
 					<?php } ?>
 					
 					<?php
-					    if($data['soundcloud'] != ''){
+					    if($user_infos['soundcloud'] != ''){
 					?>
-					<a class="btn btn-soundcloud-profile" href="<?php echo $data['soundcloud']; ?>"><i class="fa fa-soundcloud"></i></a>
+					<a class="btn btn-soundcloud-profile" href="<?php echo $user_infos['soundcloud']; ?>"><i class="fa fa-soundcloud"></i></a>
 					<?php } ?>
 					
 					<?php
-					    if($data['youtube'] != ''){
+					    if($user_infos['youtube'] != ''){
 					?>
-					<a class="btn btn-youtube-profile" href="<?php echo $data['youtube']; ?>"><i class="fa fa-youtube"></i></a>
+					<a class="btn btn-youtube-profile" href="<?php echo $user_infos['youtube']; ?>"><i class="fa fa-youtube"></i></a>
 					<?php } ?>
 
 			                </div>
@@ -96,9 +93,17 @@ foreach($user as $data)
 						<div class="row">
 						  <div class="col-xs-12 col-md-6 col-lg-6">
 						  <h3>Biographie</h3>
+						<?php
+					    if($user_infos['bio'] == ''){
+						?>
+							<p>
+							  	Cet utilisateur n'a pas encore défini de biographie.
+							</p>
+						<?php }else{ ?>
 							  <p>
-							  	<?php echo $data['bio']; ?>
+							  	<?php echo $user_infos['bio']; ?>
 							  </p>
+						<?php } ?>
 						  </div>
 						  <div class="col-xs-12 col-md-6 col-lg-6">
 							  <h3>Informations</h3>
@@ -109,9 +114,7 @@ foreach($user as $data)
 						</div>
 
 					  </div>
-<?php
-}	
-?>					  
+					  
 
 					  <!-- Onglet articles -->
 					  <div class="tab-pane" id="articles">

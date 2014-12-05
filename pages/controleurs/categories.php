@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
 	$nb_articles = count($articles);
 	
 	// On divise le nombre d'articles du tableau par le nombre d'éléments qu'on veut par pages.
-	$nb_page = ceil($nb_articles / CONTENU_PAGES);
+	$nb_page = ceil($nb_articles / ARTICLES_PAGES);
 	
 	// On génére la liste des pages.
 	$listePage = get_list_page($page, $nb_page);
@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
 }else{
 	
 	//Préparation de la requête
-	$categories = liste_categories();
+	$data = liste_categories();
  
 	//On inclut la vue
 	include(dirname(__FILE__).'/'.VUES.'/categories.php');

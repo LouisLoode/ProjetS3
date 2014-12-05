@@ -1,9 +1,3 @@
-<?php
-
-foreach($article as $data)
-{
-	
-?>
 		
 
 			<div class="section section-no-margin-bottom row entries bg-primary">
@@ -71,7 +65,7 @@ foreach($article as $data)
 					<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">
 							<li><a href="index.html">Accueil</a></li>
-							<li><a href="index.php?page=categories&id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></li>
+							<li><a href="index.php?page=categories&amp;id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></li>
 							<li class="active" title="<?php echo $data['titre']; ?>"><?php echo $data['titre']; ?></li>
 						</ol>
 					</div>
@@ -99,9 +93,9 @@ foreach($article as $data)
 						</figure>
 
 						<div class="entry-meta indented">
-							<span class="author">par <a href="index.php?page=utilisateurs&id=<?php echo $data['id_user']; ?>"><?php echo $data['nom_user']; ?></a></span>
+							<span class="author">par <a href="index.php?page=utilisateurs&amp;id=<?php echo $data['id_user']; ?>"><?php echo $data['nom_user']; ?></a></span>
 							<span class="entry-date"><a href="blog.html">le <time datetime="<?php echo $data['date']; ?>"><?php echo $data['date']; ?></time></a></span>
-							<span class="category">dans <a href="index.php?page=categories&id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></span>
+							<span class="category">dans <a href="index.php?page=categories&amp;id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></span>
 						</div>
 
 						<div class="entry-content indented">
@@ -334,7 +328,7 @@ foreach($article as $data)
 							</figure>
 
 							<div class="media-body">
-								<h4 class="entry-author-name">par <a href="index.php?page=utilisateurs&id=<?php echo $data['id_user']; ?>"><?php echo $data['nom_user']; ?></a></h4>
+								<h4 class="entry-author-name">par <a href="index.php?page=utilisateurs&amp;id=<?php echo $data['id_user']; ?>"><?php echo $data['nom_user']; ?></a></h4>
 
 								<p>
 									<?php echo $data['nom_user']; ?>
@@ -448,9 +442,6 @@ foreach($article as $data)
 
 					</div>
 				</div><!--/.col-md-8.col-lg-8.col-xl-9-->
-<?php
-}
-?>
 
 <?php
 include('includes/sidebar.php');

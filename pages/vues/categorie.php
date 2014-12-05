@@ -18,13 +18,17 @@
 						<header class="page-header">
 						
 							<h2 class="page-title">
-								<?php //echo $data['titre']; ?>
+								<?php echo $data['nom_cat']; ?>
 							</h2>
 
 						</header>
 						
 <?php
+
+// Si il y a des articles, on les affiches	
+if($nb_articles > 0){
 include 'includes/articles.php';	
+
 ?>	
 								
 					</div><!--/.entris-->
@@ -32,7 +36,17 @@ include 'includes/articles.php';
 				</div><!--/.col-md-8.col-lg-8.col-xl-9-->
 
 <?php
+
 include('includes/sidebar.php');
+}else{
+?>
+
+<div class="col-md-12 text-center">
+	<p>Il n'y a pas d'articles actuellement dans cette catégorie</p>
+</div>
+
+<?php
+}
 ?>
 
 			</div><!--/#content-->

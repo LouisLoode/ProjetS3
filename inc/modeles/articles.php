@@ -1,8 +1,7 @@
 <?php
 
 //Vérifier les identifiants pour se connecter à la BDD
-
-function ajout_article($titre, $contenu, $id_user) {
+function ajout_article($titre, $contenu, $id_user){
 	
 	// La fonction de connexion doit rester active durant tout le script.
 	global $myConnexion;
@@ -13,7 +12,7 @@ function ajout_article($titre, $contenu, $id_user) {
 	//var_dump($myRequete);
 	
 	// Execution de la requête
-	$myCols = mysqli_query($myConnexion,$myRequete);
+	$myCols = requete($myRequete);
 	
 		while($row = mysqli_fetch_array($myCols)){
 			$myUser['email'] = $row['email'];
@@ -83,7 +82,7 @@ function liste_categories($menu='', $by=''){
 
 
 	// Lancement de la requête
-	$req = mysqli_query($myConnexion,$myRequete);
+	$req = requete($myRequete);
 	//var_dump($myCols);
 
 
@@ -159,7 +158,7 @@ function liste_articles($by='autre', $id_cat='', $id_user='', $limit=''){
 
 
 	// Lancement de la requête
-	$req = mysqli_query($myConnexion,$myRequete);
+	$req = requete($myRequete);
 	//var_dump($myCols);
 //$articles['nb_lignes'] = mysqli_num_rows($req);
 	
@@ -175,8 +174,6 @@ function liste_articles($by='autre', $id_cat='', $id_user='', $limit=''){
         return $articles;
 
 }
-
-
 
 //Lister les articles par categorie
 function articles_par_categories($id_cat){
@@ -199,7 +196,7 @@ function articles_par_categories($id_cat){
 
 
 	// Lancement de la requête
-	$req=mysqli_query($myConnexion,$myRequete);
+	$req=requete($myRequete);
 	//var_dump($myCols);
 
 
@@ -235,7 +232,7 @@ function articles_par_utilisateur($id_user){
 
 
 	// Lancement de la requête
-	$req=mysqli_query($myConnexion,$myRequete);
+	$req=requete($myRequete);
 	//var_dump($myCols);
 
 
@@ -249,7 +246,6 @@ function articles_par_utilisateur($id_user){
         return $categories;
 
 }
-
 
 //Afficher l'article sélectionné
 function display_article($id_article){
@@ -280,18 +276,59 @@ function display_article($id_article){
 
 
 	// Lancement de la requête
-	$req=mysqli_query($myConnexion,$myRequete);
-	//var_dump($myCols);
+	$req = requete($myRequete);
+	// var_dump($req);
 
+
+		// Boucle qui stocke les résultats dans un tableau
+        $data = mysqli_fetch_array($req);
+ 
+		// Renvoi du tableau pour utilisation future
+        return $data;
+
+}
+
+//Lister les articles
+function articles_slide($by='autre', $id_cat='', $id_user='', $limit=''){
+	
+	// La fonction de connexion doit rester active durant tout le script.
+	global $myConnexion;
+	//var_dump($myConnexion);
+	
+	// Création du tableau
+	$articles = array();
+	
+	// Création de la variable qui récupére l'id de l'user pour éviter une autre erreur éventuelle.
+	$by_user = null;
+	
+	$by_cat = null;
+
+	// Préparation de la requête
+	$myRequete = 'SELECT *
+					FROM articles, utilisateurs, categories, articles_categories
+					WHERE articles.id_user = utilisateurs.id_user 
+					AND articles.statut = "1"
+					AND articles_categories.id_article = articles.id_article
+					AND  articles_categories.id_cat = categories.id_cat
+					AND (articles);';
+	 //var_dump($myRequete);			
+
+
+	// Lancement de la requête
+	$req = requete($myRequete);
+	//var_dump($myCols);
+//$articles['nb_lignes'] = mysqli_num_rows($req);
+	
+	
 
 		// Boucle qui stocke les résultats dans un tableau
         while ($data = mysqli_fetch_assoc($req))
         {
-                $article[] = $data;
+                $articles[] = $data;
         }
  
 		// Renvoi du tableau pour utilisation future
-        return $article;
+        return $articles;
 
 }
 

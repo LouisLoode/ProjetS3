@@ -1,16 +1,3 @@
-<?php
-	if ($i!=0)
-   	{
-        echo'<h1>Inscription interrompue</h1>';
-        echo'<p>Une ou plusieurs erreurs se sont produites pendant l incription</p>';
-        echo'<p>'.$i.' erreur(s)</p>';
-        echo'<p>'.$login_erreur.'</p>';
-        echo'<p>'.$mdp_erreur.'</p>';
-        echo'<p>'.$email_erreur1.'</p>';
-        echo'<p>'.$email_erreur2.'</p>';
-    }
-?>
-
 		<div id="content" class="content bg-base section">
 		<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">

@@ -1,5 +1,5 @@
 <?php	
 	
 //On inclut la vue
-include(dirname(__FILE__).'/'.VUES.'/erreur.php');
+include(dirname(__FILE__).'/'.VUES.'/includes/erreur.php');
 ?>

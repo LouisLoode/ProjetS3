@@ -10,7 +10,7 @@ $articles = liste_articles();
 $nb_articles = count($articles);
 
 // On divise le nombre d'articles du tableau par le nombre d'éléments qu'on veut par pages.
-$nb_page = ceil($nb_articles / CONTENU_PAGES);
+$nb_page = ceil($nb_articles / ARTICLES_PAGES);
 
 // On génére la liste des pages.
 $listePage = get_list_page($page, $nb_page);

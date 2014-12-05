@@ -8,13 +8,6 @@ Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'
 $i = 0; 
 
 if($_POST){
-
-	$login_erreur = NULL;
-    $mdp_erreur = NULL;
-    $email_erreur1 = NULL;
-    $email_erreur2 = NULL;
-    $tp_erreur = NULL;
-
  
     //On récupère les variables
 
@@ -33,14 +26,14 @@ if($_POST){
 	$data = mysqli_fetch_array($myCols); 
     if($data[0] == 1)
     {
-        $login_erreur = 'Votre nom est déjà utilisé par un membre.';
+        $alert = message('Votre nom est déjà utilisé par un membre.', 3);
         $i++;
     }
  
     //Vérification du mdp
     if ($pass != $confirm || empty($confirm) || empty($pass))
     {
-        $mdp_erreur = 'Votre mot de passe et votre confirmation diffèrent, ou sont vides.';
+	    $alert = message('Votre mot de passe et votre confirmation diffèrent, ou sont vides.', 3);
         $i++;
     }
     
@@ -56,13 +49,13 @@ if($_POST){
 	$data = mysqli_fetch_array($myCols); 
     if($data[0] == 1)
     {
-        $email_erreur1 = 'Votre adresse email est déjà utilisée par un autre membre.';
+        $alert = message('Votre adresse email est déjà utilisée par un autre membre.', 3);
         $i++;
     }
     //On vérifie la forme maintenant
     if (!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $email) || empty($email))
     {
-        $email_erreur2 = 'Votre adresse E-Mail n\'a pas un format valide';
+        $alert = message('Votre adresse E-Mail n\'a pas un format valide', 3);
         $i++;
     }
 
@@ -71,13 +64,19 @@ if($_POST){
 	if ($i==0)
    	{
 
-	$myUser = inscription($_POST['login'], $_POST['email'], $_POST['password']);
-	//var_dump($myUser);
-	
-	echo 'inscription ok';
+		$myUser = inscription($_POST['login'], $_POST['email'], $_POST['password']);
+		//var_dump($myUser);
+		
+		$alert = message('Votre inscription s\'est bien déroulée.', 1);
+		
+		include 'accueil.php';
         
-   	}
+   	}else{
 
+		//On inclut la vue
+		include(dirname(__FILE__).'/'.VUES.'/inscription.php');
+	
+	}
 
 }else{
  

@@ -27,19 +27,19 @@
 			        <?php
 					    if($user_infos['twitter'] != ''){
 					?>
-					<a class="btn btn-twitter-profile" href="<?php echo $$user_infos['twitter']; ?>"><i class="fa fa-twitter"></i></a>
+					<a class="btn btn-twitter-profile" href="<?php echo $user_infos['twitter']; ?>"><i class="fa fa-twitter"></i></a>
 					<?php } ?>
 					
 					<?php
 					    if($user_infos['instagram'] != ''){
 					?>
-					<a class="btn btn-instagram-profile" href="<?php echo $$user_infos['instagram']; ?>"><i class="fa fa-instagram"></i></a>
+					<a class="btn btn-instagram-profile" href="<?php echo $user_infos['instagram']; ?>"><i class="fa fa-instagram"></i></a>
 					<?php } ?>
 					
 					<?php
 					    if($user_infos['vimeo'] != ''){
 					?>
-					<a class="btn btn-vimeo-profile" href="<?php echo $$user_infos['vimeo']; ?>"><i class="fa fa-vimeo-square"></i></a>
+					<a class="btn btn-vimeo-profile" href="<?php echo $user_infos['vimeo']; ?>"><i class="fa fa-vimeo-square"></i></a>
 					<?php } ?>
 					
 					<?php

@@ -91,4 +91,33 @@ function message($msg, $type=0)
 	  	$_SESSION['alerts'][] = $nouvelleAlert;	
         
 }
+
+
+function extrait($string, $start = 20, $end = 15, $sep = ' [...]')
+{
+        $extrait = substr($string,0,$start);
+        $extrait = substr($string,0,strrpos($extrait,' ')).$sep;
+        $extrait2 = strstr(substr($string, -$end,$end),' ');
+        return $extrait.' '.$extrait2;
+}
+
+function authorisation($auth_necessaire, $auth)
+{
+	$level=(isset($auth))?$auth:0;
+	return ($auth_necessaire <= intval($level));
+}
+
+function customHash($chars = 8, $items = 'abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'){
+	
+	$output 	= '';
+	$chars 		= (int)$chars;
+	$nbr		= strlen($items);
+	
+	if($chars > 0 && $nbr > 0){
+		for($i = 0; $i < $chars; $i++){
+			$output	.= $items[mt_rand(0,($nbr-1))];
+		}
+	}
+	return $output;
+}
 ?>

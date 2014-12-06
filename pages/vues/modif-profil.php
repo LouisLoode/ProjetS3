@@ -60,7 +60,9 @@
 				<input type="text" name="youtube" id="youtube" class="form-control input-lg" <?php echo (($user['youtube']=='') ? 'placeholder="Adresse Youtube"' : 'value="'.$user['youtube']).'"'; ?> tabindex="4">
 			</div>
 			<div class="form-group">
-				<textarea class="form-control" name="bio" <?php echo (($user['bio']=='') ? 'placeholder="Biographie"' : 'value="'.$user['bio']).'"'; ?> rows="3"></textarea>
+				<textarea class="form-control" name="bio" id="bio" <?php echo (($user['bio']=='') ? 'placeholder="Biographie"' : 'value="'.$user['bio']).'"'; ?> cols=50 rows=5 class="form-control"></textarea>
+				<p class="help-block"><span id="compteur_bio">Tapez votre texte</span></p>
+				
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-md-6"><input type="submit" value="Modifier mon profil" class="btn btn-success btn-block btn-lg" tabindex="7"><br /></div>
@@ -128,17 +130,29 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				<h4 class="modal-title" id="myModalLabel">Modifier mon mot de passe</h4>
 			</div>
-			<div class="modal-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+			<div class="modal-body">		
+			<div class="col-md-12">
+				
+				
+				<div class="form-group col-lg-6">
+					<label>Nouveau mot de passe</label>
+					<input type="password" name="new_mdp1" class="form-control" id="new_mdp1" value="">
+				</div>
+				
+				<div class="form-group col-lg-6">
+					<label>Répéter le mot de passe</label>
+					<input type="password" name="new_mdp2" class="form-control" id="new_mdp2" value="">
+				</div>
+								
+				<div class="form-group col-lg-12">
+					<label>Votre ancien mot de passe</label>
+					<input type="password" name="old_mdp" class="form-control" id="old_mdp" value="">
+				</div>					
+			
+			</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+				<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">Modifier mon profil</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->

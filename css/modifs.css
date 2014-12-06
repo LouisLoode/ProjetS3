@@ -585,3 +585,8 @@ font-size: larger;
 .filterable .filters input[disabled]:-ms-input-placeholder {
     color: #333;
 }
+
+
+.modal-footer {
+	border-top: none;
+}

@@ -10,7 +10,7 @@ session_destroy();
 
 $alerts = message('Vous êtes bien déconnecté', 1);
 
-var_dump($_SESSION['alerts']);
+//var_dump($_SESSION['alerts']);
 
 header('Location: index.php');
 exit;

@@ -120,7 +120,7 @@
 									foreach($categories_menu as $data)
 									{
 									?>
-									<li><a href="index.php?page=categories&amp;id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></li>
+									<li><a href="categories-<?php echo $data['id_cat']; ?>.html"><?php echo $data['nom_cat']; ?></a></li>
 									<?php
 									}
 									?>
@@ -146,7 +146,7 @@
 foreach($categories_menu as $data)
 {
 ?>
-					<li class="visible-md visible-lg"><a href="index.php?page=categories&amp;id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></li>
+					<li class="visible-md visible-lg"><a href="categories-<?php echo $data['id_cat']; ?>.html"><?php echo $data['nom_cat']; ?></a></li>
 <?php
 }
 ?>

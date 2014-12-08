@@ -1,4 +1,7 @@
-
+<?php
+$test = login('louisdebraine@gmail.com', '29l0231650');	
+var_dump($test);
+?>
 		<div id="content" class="content bg-base section">
 			
 		<div class="ribbon ribbon-highlight">

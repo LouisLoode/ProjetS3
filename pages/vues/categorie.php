@@ -9,7 +9,7 @@
 						<ol class="breadcrumb ribbon-inner">
 							<li><a href="index.html">Accueil</a></li>
 							<li><a href="categories.html">Catégories</a></li>
-							<li class="active"><?php //echo $data['titre']; ?></li>
+							<li class="active"><?php echo $data['nom_cat']; ?></li>
 						</ol>
 					</div>
 					
@@ -27,6 +27,7 @@
 
 // Si il y a des articles, on les affiches	
 if($nb_articles > 0){
+	
 include 'includes/articles.php';	
 
 }else{

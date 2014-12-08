@@ -62,7 +62,7 @@ foreach($articles as $data)
 	   elseif( $num == '...' )
 	      echo '<li><a href="#" data-toggle="modal" data-target="#selectionPage"> ... </a></li>';
 	   else
-	      echo '<li><a href="' . $num . '">' . $num . '</a></li>';
+	      echo '<li><a href="' . $urlPagination['avant'] . $num . $urlPagination['apres'] . '">' . $num . '</a></li>';
 	}
 ?>
 <li><a href="#">»</a></li>

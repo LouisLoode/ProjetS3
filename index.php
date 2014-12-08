@@ -28,9 +28,9 @@ include 'inc/init.php';
 include 'pages/vues/header.php';
 
 //On inclut le contrôleur s'il existe et s'il est spécifié, sinon on renvoit vers l'accueil
-if (!empty($_GET['page']) && is_file(CONTROLEURS.'/'.$_GET['page'].'.php'))
+if (!empty($page) && is_file(CONTROLEURS.'/'.$page.'.php'))
 {
-        include CONTROLEURS.'/'.$_GET['page'].'.php';
+        include CONTROLEURS.'/'.$page.'.php';
 }
 else
 {

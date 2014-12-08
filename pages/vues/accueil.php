@@ -169,7 +169,7 @@
 
 					<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">
-							<li class="active">Accueil</li>
+							<li class="active">Accueil -> Bonjour <?php echo $_SESSION['pseudo'];?></li>
 						</ol>
 					</div>
 					

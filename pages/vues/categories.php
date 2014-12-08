@@ -1,5 +1,5 @@
 <?php
-	foreach($categories as $data)
+foreach($categories as $data)
 {
 	?>
 

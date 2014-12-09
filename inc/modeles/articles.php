@@ -1,6 +1,6 @@
 <?php
 
-//Vérifier les identifiants pour se connecter à la BDD
+//Ajout d'un article
 function ajout_article($titre, $contenu, $id_user){
 	
 	// Préparation de la requête
@@ -18,6 +18,55 @@ function ajout_article($titre, $contenu, $id_user){
 		//var_dump($myCols);
 		//var_dump($myUser);
 		return $myUser;
+}
+
+//Supprimer un article
+function del_article($id){
+	
+	// Préparation de la requête qui supprime l'article
+	$myRequete = 'DELETE FROM articles WHERE articles.id_article="'.$id.'";';
+	
+	// Execution de la requête
+	$result = requete($myRequete);
+		//var_dump($result);
+		
+	// Préparation de la requête qui supprime les liens Articles-Categories pour pas mettre le souc dans la table.
+	$myRequete = 'DELETE FROM articles_categories WHERE articles_categories.id_article="'.$id.'";';
+	
+	// Execution de la requête
+	$result = requete($myRequete);
+		//var_dump($result);
+	
+	return $result;
+	
+}
+
+// Mettre un article en public
+function public_article($id){
+		
+	// Préparation de la requête qui supprime les liens Articles-Categories pour pas mettre le souc dans la table.
+	$myRequete = 'UPDATE articles SET statut="1" WHERE id_article="'.$id.'";';
+	
+	// Execution de la requête
+	$result = requete($myRequete);
+		//var_dump($result);
+	
+	return $result;
+	
+}
+
+// Mettre un article en public 
+function brouillon_article($id){
+		
+	// Préparation de la requête qui supprime les liens Articles-Categories pour pas mettre le souc dans la table.
+	$myRequete = 'UPDATE articles SET statut="0" WHERE id_article="'.$id.'";';
+	
+	// Execution de la requête
+	$result = requete($myRequete);
+		//var_dump($result);
+	
+	return $result;
+	
 }
 
 //Afficher la liste des catégories
@@ -91,7 +140,7 @@ function liste_categories($menu='', $by=''){
 }
 
 //Lister les articles
-function liste_articles($by='autre', $id_cat='', $id_user='', $limit=''){
+function liste_articles($by='autre', $id_cat='', $id_user='', $limit='10', $statut='public'){
 	
 	// Création du tableau
 	$articles = array();
@@ -125,6 +174,27 @@ function liste_articles($by='autre', $id_cat='', $id_user='', $limit=''){
 	}
 	
 	
+	switch ($statut) // On veut trier par statut
+	{ 
+	// Articles publics
+	case 'public':
+        $statut_req = 'AND articles.statut = "1"';
+    break;
+	// Articles publics
+	case 'brouillon':
+        $statut_req = 'AND articles.statut = "0"';
+    break;
+	// On veut afficher tout les articles
+	case 'tout':
+        $statut_req = '';
+    break;
+    // Sinon
+    default:
+        $statut_req = 'AND articles.statut = "1"';
+	}
+	
+	
+	
 	
 	if(!empty($id_cat)) {
 	    $by_cat = 'AND categories.id_cat = "'.$id_cat.'"';
@@ -142,33 +212,27 @@ function liste_articles($by='autre', $id_cat='', $id_user='', $limit=''){
 	}
 		
 	// On prépare le bidouillage de la requête.
-	$ajoutRequete = $by_cat.'
+	$ajoutRequete = $statut_req.' 
+					'.$by_cat.'
 					'.$by_user.' 
 					'.$order_by.' 
 					'.$limit.';';	
 
 	// Préparation de la requête
-	$myRequete = 'SELECT *
-					FROM articles, utilisateurs, categories, articles_categories
+	$myRequete = 'SELECT * 
+					FROM articles, utilisateurs, categories, articles_categories 
 					WHERE articles.id_user = utilisateurs.id_user 
-					AND articles.statut = "1"
-					AND articles_categories.id_article = articles.id_article
-					AND  articles_categories.id_cat = categories.id_cat
+					AND articles_categories.id_article = articles.id_article 
+					AND articles_categories.id_cat = categories.id_cat
 					'.$ajoutRequete;
-
-	/*$myRequete = 'SELECT *
-					FROM articles, utilisateurs, categories, articles_categories
-					WHERE articles.id_user = utilisateurs.id_user 
-					AND articles.statut = "1"
-					'.$ajoutRequete;*/
-		
-	 //var_dump($myRequete);			
+					
+	// var_dump($myRequete);			
 
 	 //echo '<hr />';
 
 	// Lancement de la requête
 	$req = requete($myRequete);
-	//var_dump($myCols);
+	//var_dump($req);
 //$articles['nb_lignes'] = mysqli_num_rows($req);
 	
 	if ($req) {
@@ -183,7 +247,7 @@ function liste_articles($by='autre', $id_cat='', $id_user='', $limit=''){
 		// Renvoi du tableau pour utilisation future
         return $articles;
 
-}
+ }
 
 //Lister les articles
 function count_articles($id_cat='', $id_user=''){

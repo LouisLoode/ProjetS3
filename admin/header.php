@@ -61,7 +61,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> Profil de l'utilisateur</a></li>
                         <li class="divider"></li>
-                        <li><a href="deconnexion.html"><i class="fa fa-sign-out fa-fw"></i> Déconnexion</a>
+                        <li><a href="../deconnexion.html"><i class="fa fa-sign-out fa-fw"></i> Déconnexion</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -83,7 +83,7 @@
                                     <a href="index.php?page=liste_articles">Gérer les articles</a>
                                 </li>
                                 <li>
-                                    <a href="index.php?page=creation_article">Ajouter un article</a>
+                                    <a href="index.php?page=ajout_article">Ajouter un article</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -104,7 +104,7 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> Utilisateurs<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Gérer les utilisateurs</a>
+                                    <a href="index.php?page=liste_users">Gérer les utilisateurs</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -116,4 +116,7 @@
             <!-- /.navbar-static-side -->
         </nav>
         
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
         <?php include '../pages/vues/includes/messages_erreurs.php'; ?>

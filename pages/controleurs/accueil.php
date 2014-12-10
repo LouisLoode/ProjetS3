@@ -15,12 +15,10 @@ $urlPagination = array(
 	'apres' => '.html'
 );
 	
-echo $id_cat;
 
 // Compte le nombre de lignes du tableau renvoyé par la variable liste_articles.
 $nb_articles = count_articles($id_cat, $id_user);
 
-echo $nb_articles;
 
 $articles_pages = ARTICLES_PAGES;
 
@@ -38,7 +36,5 @@ $articles = liste_articles($by, $id_cat, $id_user, $premiereEntree.', '.$article
 	
 //On inclut la vue
 include(dirname(__FILE__).'/'.VUES.'/accueil.php');
-
-
 
 ?>

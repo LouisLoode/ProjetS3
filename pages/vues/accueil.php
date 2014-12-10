@@ -169,12 +169,11 @@
 
 					<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">
-							<li class="active">Accueil -> Bonjour <?php echo $_SESSION['pseudo'];?></li>
+							<li class="active">Accueil -> <?php echo $_SESSION['role'];?></li>
 						</ol>
 					</div>
 					
 					<div class="entries">
-
 <?php
 include 'includes/articles.php';	
 ?>	
@@ -182,11 +181,9 @@ include 'includes/articles.php';
 					</div><!--/.entris-->
 
 				</div><!--/.col-md-8.col-lg-8.col-xl-9-->
-
 <?php
 include('includes/sidebar.php');
 ?>
-
 			</div><!--/#content-->
 
 

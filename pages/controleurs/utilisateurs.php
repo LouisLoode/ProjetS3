@@ -18,6 +18,16 @@ switch ($action) // On indique l'action que l'on souhaite effectuer.
 	
     case 'modifier': // dans le cas ou l'on souhaite modifier le profil.
         
+        if (!$verif_connect){ 
+
+		$alert = message('Vous devez être connecté pour accéder à cette page.', 3);
+
+		//On inclut la vue
+		header('Location: connexion.html');
+		exit;
+			
+		}
+		
 		if($_POST){
 			
 			/*

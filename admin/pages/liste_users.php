@@ -5,8 +5,8 @@ if (isset($_GET['del'])) // Si l'on demande de supprimer une news.
     // Alors on supprime la news correspondante.
     // On protège la variable « id_news » pour éviter une faille SQL.
     $id = addslashes($_GET['del']);
-    $action = del_article($id);
-    $alert = message('L\'article selectioné a bien été supprimé.', 1);
+    $action = del_user($id);
+    $alert = message('L\'utilisateur selectioné a bien été supprimé.', 1);
 
 }	
 
@@ -20,15 +20,6 @@ if (isset($_GET['public'])) // Si l'on demande de rendre public une news.
 
 }	
 
-if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée (brouillon).
-{
-    // Alors on supprime la news correspondante.
-    // On protège la variable « id_news » pour éviter une faille SQL.
-    $id = addslashes($_GET['brouillon']);
-    $action = brouillon_article($id);
-    $alert = message('L\'article selectioné a bien été remis dans les brouillon.', 1);
-
-}
 
 
 ?>
@@ -36,22 +27,21 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Liste des articles <small>ou <a href="index.php?page=dashboard">retourner au dashboard</a></small></h1>
+                        <h1 class="page-header">Liste des utilisateurs <small>ou <a href="index.php?page=dashboard">retourner au dashboard</a></small></h1>
                     </div>
                     <div class="col-lg-12">
 	                    <a href="index.php?page=ajout_article" class="btn btn-primary btn-sm pull-left">Ajouter une échéance</a><br /><br />
 	                </div>
                     <div class="col-lg-12">
 	                    
-	                    
+	              
 	                
 	                <table class="table">
 						<tr>
 						<th>Id</th>
-						<th>Titre</th>
-						<th>Catégories</th>
-						<th>Visibilité</th>
-						<th>Auteur</th>
+						<th>Nom</th>
+						<th>Email</th>
+						<th>Role</th>
 						<th>Gestion</th>
 						</tr>
 						<?php
@@ -61,12 +51,8 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 						
 						$by = (isset($_GET['by'])) ? $_GET['by'] : '';
 						
-						$id_cat = '';
-						
-						$id_user = '';
-						
 						// Compte le nombre de lignes du tableau renvoyé par la variable liste_articles.
-						$nb_articles = count_articles();
+						$nb_articles = nbr_utilisateurs();
 						
 						$articles_pages = DONNEE_LIGNES;
 						
@@ -79,22 +65,23 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 						$premiereEntree = ($page-1) * $articles_pages;
 						
 						//Préparation de la requête
-						$articles = liste_articles($by, $id_cat, $id_user, $premiereEntree.', '.$articles_pages, 'tout');	
+						$infos_users = liste_utilisateurs('', $premiereEntree.', '.$articles_pages);
 						//var_dump($articles);
 						
 						// On boucle les articles
-						foreach($articles as $data)
+						foreach($infos_users as $data)
 						{
 							
-						$couleur_statut = ($data['statut']=='1') ? 'success' : 'warning';
+						//$couleur_statut = ($data['role']=='1') ? 'success' : 'warning';
 						?>
-						<tr class="<?php //echo $couleur_echeance; ?>">
-						<td><?php echo $data['id_article']; ?></td>
-						<td style="width: 30%"><a href="index.php?page=ajout_article&modif=<?php echo $data['id_article']; ?>"><?php echo $data['titre']; ?></a></td>
-						<td><a href="index.php?page=ajout_categorie&id=<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></td>
-						<td><a href="<?php echo (($data['statut']=='1') ? 'index.php?page=liste_articles&brouillon='.$data['id_article'] : 'index.php?page=liste_articles&public='.$data['id_article']); ?>"><span class="label label-<?php echo $couleur_statut; ?>"><?php echo (($data['statut']=='1') ? 'Publié' : 'Brouillon'); ?></span></td>
+						<tr class="<?php //echo $couleur_statut; ?>">
+						<td><?php echo $data['id_user']; ?></td>
+						<td style="width: 30%"><?php echo $data['nom_user']; ?></td>
+						<td style="width: 30%"><a href="index.php?page=ajout_article&modif=<?php echo $data['email']; ?>"><?php echo $data['email']; ?></a></td>
+
+						<td><a href="<?php// echo (($data['statut']=='1') ? 'index.php?page=liste_users&brouillon='.$data['id_article'] : 'index.php?page=liste_users&make_role='.$data['id_article']); ?>"><span class="label label-<?php// echo $couleur_statut; ?>"><?php //echo (($data['statut']=='1') ? 'Publié' : 'Brouillon'); ?></span></a>
+						</td>
 	
-						<td><a href="../utilisateurs-<?php echo $data['id_user']; ?>.html"><?php echo $data['nom_user']; ?></a></td>
 						<td>
 						<div class="btn-group">
 						  <a href="index.php?page=ajout_article&modif=<?php echo $data['id_article']; ?>" class="btn btn-primary btn-sm">Modifier</a>
@@ -102,14 +89,14 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 						    <span class="caret"></span>
 						  </button>
 						  <ul class="dropdown-menu" role="menu">
-						    <li><a href="../articles-<?php echo $data['id_article']; ?>.html">Consulter</a></li>
-						    <li><a data-toggle="modal" href="#myModal-<?php echo $data['id_article']; ?>" >Supprimer</a></li>
+						    <li><a href="../utilisateurs-<?php echo $data['id_user']; ?>.html">Consulter</a></li>
+						    <li><a data-toggle="modal" href="#myModal-<?php echo $data['id_user']; ?>" >Supprimer</a></li>
 						  </ul>
 						</div>
 						
 						
 						  <!-- Modal -->
-						  <div class="modal fade" id="myModal-<?php echo $data['id_article']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						  <div class="modal fade" id="myModal-<?php echo $data['id_user']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						    <div class="modal-dialog">
 						      <div class="modal-content">
 						        <div class="modal-header">
@@ -117,11 +104,11 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 						          <h4 class="modal-title">Supprimer ?</h4>
 						        </div>
 						        <div class="modal-body">
-						         Êtes vous sur de vouloir supprimer: "<?php echo $data['titre']; ?>" ?
+						         Êtes vous sur de vouloir supprimer: "<?php echo $data['nom_user']; ?>" ?
 						        </div>
 						        <div class="modal-footer">
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-						          <a href="index.php?page=liste_articles&del=<?php echo $data['id_article']; ?>" class="btn btn-danger btn-sm">Supprimer</a>
+						          <a href="index.php?page=liste_users&del=<?php echo $data['id_user']; ?>" class="btn btn-danger btn-sm">Supprimer</a>
 						        </div>
 						      </div><!-- /.modal-content -->
 						    </div><!-- /.modal-dialog -->
@@ -130,7 +117,7 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 						</tr>
 						<?php
 						
-						} // Fin de la boucle qui liste les news.
+						} // Fin de la boucle qui liste les utilisateurs.
 						?>
 						</table>
 						

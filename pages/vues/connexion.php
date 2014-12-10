@@ -1,7 +1,4 @@
-<?php
-$test = login('louisdebraine@gmail.com', '29l0231650');	
-var_dump($test);
-?>
+
 		<div id="content" class="content bg-base section">
 			
 		<div class="ribbon ribbon-highlight">
@@ -31,16 +28,7 @@ var_dump($test);
 								</div>
 								<div class="form-group">
 									<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Mot de passe" tabindex="4">
-									<p class="text-right"><a href="#">Mot de passe oublié ?</a></p>
-								</div>
-								<div class="form-group">
-								
-										<span class="button-checkbox">
-											<button type="button" class="btn" data-color="info" tabindex="7">  Se souvenir de moi</button>
-					                        <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
-										</span>
-								
-							
+									<p class="text-right">Mot de passe oublié ?</p>
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-md-6"><input type="submit" value="Connexion" class="btn btn-success btn-block btn-lg" tabindex="7"><br /></div>

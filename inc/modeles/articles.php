@@ -249,7 +249,7 @@ function liste_articles($by='autre', $id_cat='', $id_user='', $limit='10', $stat
 
  }
 
-//Lister les articles
+//Compter les articles
 function count_articles($id_cat='', $id_user=''){
 	
 	// Création du tableau

@@ -2,7 +2,7 @@
 		<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">
 							<li><a href="index.php">Accueil</a></li>
-							<li><a href="utilisateurs-0-<?php echo $user['id_user'];?>.html"><?php echo $user['nom_user'];?></a></li>
+							<li><a href="utilisateurs-0-<?php echo $user_infos['id_user'];?>.html"><?php echo $user_infos['nom_user'];?></a></li>
 							<li class="active">Modifier mon profil</li>
 						</ol>
 					</div>
@@ -25,42 +25,42 @@
     
 		
 			<div class="form-group">
-				<input type="text" name="display_name" id="display_name" class="form-control input-lg" value="<?php echo $user['nom_user'];?>" tabindex="3">
+				<input type="text" name="display_name" id="display_name" class="form-control input-lg" value="<?php echo $user_infos['nom_user'];?>" tabindex="3">
 			</div>
 			<div class="form-group">
-				<input type="email" name="email" id="email" class="form-control input-lg" value="<?php echo $user['email'];?>" tabindex="4">
+				<input type="email" name="email" id="email" class="form-control input-lg" value="<?php echo $user_infos['email'];?>" tabindex="4">
 			</div>
 			
 			<h4 class="text-center">vos informations complémentaires</h4>
     
 			<div class="form-group">
-				<input type="text" name="facebook" id="facebook" class="form-control input-lg" <?php echo (($user['facebook']=='') ? 'placeholder="Adresse Facebook"' : 'value="'.$user['facebook']).'"'; ?> tabindex="4">
+				<input type="text" name="facebook" id="facebook" class="form-control input-lg" <?php echo (($user_infos['facebook']=='') ? 'placeholder="Adresse Facebook"' : 'value="'.$user_infos['facebook']).'"'; ?> tabindex="4">
 			</div>
 
 			<div class="form-group">
-				<input type="text" name="twitter" id="twitter" class="form-control input-lg" <?php echo (($user['twitter']=='') ? 'placeholder="Adresse Twitter"' : 'value="'.$user['twitter']).'"'; ?> tabindex="4">
+				<input type="text" name="twitter" id="twitter" class="form-control input-lg" <?php echo (($user_infos['twitter']=='') ? 'placeholder="Adresse Twitter"' : 'value="'.$user_infos['twitter']).'"'; ?> tabindex="4">
 			</div>
 			
 			<div class="form-group">
-				<input type="text" name="instagram" id="instagram" class="form-control input-lg" <?php echo (($user['instagram']=='') ? 'placeholder="Adresse Instagram"' : 'value="'.$user['instagram']).'"'; ?> tabindex="4">
+				<input type="text" name="instagram" id="instagram" class="form-control input-lg" <?php echo (($user_infos['instagram']=='') ? 'placeholder="Adresse Instagram"' : 'value="'.$user_infos['instagram']).'"'; ?> tabindex="4">
 			</div>
 			<div class="form-group">
-				<input type="text" name="vimeo" id="vimeo" class="form-control input-lg" <?php echo (($user['vimeo']=='') ? 'placeholder="Adresse Vimeo"' : 'value="'.$user['vimeo']).'"'; ?> tabindex="4">
+				<input type="text" name="vimeo" id="vimeo" class="form-control input-lg" <?php echo (($user_infos['vimeo']=='') ? 'placeholder="Adresse Vimeo"' : 'value="'.$user_infos['vimeo']).'"'; ?> tabindex="4">
 			</div>
 			<div class="form-group">
-				<input type="text" name="tumblr" id="tumblr" class="form-control input-lg" <?php echo (($user['tumblr']=='') ? 'placeholder="Adresse Tumblr"' : 'value="'.$user['tumblr']).'"'; ?> tabindex="4">
+				<input type="text" name="tumblr" id="tumblr" class="form-control input-lg" <?php echo (($user_infos['tumblr']=='') ? 'placeholder="Adresse Tumblr"' : 'value="'.$user_infos['tumblr']).'"'; ?> tabindex="4">
 			</div>
 			<div class="form-group">
-				<input type="text" name="linkedin" id="linkedin" class="form-control input-lg" <?php echo (($user['linkedin']=='') ? 'placeholder="Adresse LinkedIn"' : 'value="'.$user['linkedin']).'"'; ?> tabindex="4">
+				<input type="text" name="linkedin" id="linkedin" class="form-control input-lg" <?php echo (($user_infos['linkedin']=='') ? 'placeholder="Adresse LinkedIn"' : 'value="'.$user_infos['linkedin']).'"'; ?> tabindex="4">
 			</div>
 			<div class="form-group">
-				<input type="text" name="soundcloud" id="soundcloud" class="form-control input-lg" <?php echo (($user['soundcloud']=='') ? 'placeholder="Adresse Soundcloud"' : 'value="'.$user['soundcloud']).'"'; ?> tabindex="4">
+				<input type="text" name="soundcloud" id="soundcloud" class="form-control input-lg" <?php echo (($user_infos['soundcloud']=='') ? 'placeholder="Adresse Soundcloud"' : 'value="'.$user_infos['soundcloud']).'"'; ?> tabindex="4">
 			</div>
 			<div class="form-group">
-				<input type="text" name="youtube" id="youtube" class="form-control input-lg" <?php echo (($user['youtube']=='') ? 'placeholder="Adresse Youtube"' : 'value="'.$user['youtube']).'"'; ?> tabindex="4">
+				<input type="text" name="youtube" id="youtube" class="form-control input-lg" <?php echo (($user_infos['youtube']=='') ? 'placeholder="Adresse Youtube"' : 'value="'.$user_infos['youtube']).'"'; ?> tabindex="4">
 			</div>
 			<div class="form-group">
-				<textarea class="form-control" name="bio" id="bio" <?php echo (($user['bio']=='') ? 'placeholder="Biographie"' : 'value="'.$user['bio']).'"'; ?> cols=50 rows=5 class="form-control"></textarea>
+				<textarea class="form-control" name="bio" id="bio" <?php echo (($user_infos['bio']=='') ? 'placeholder="Biographie"' : 'value="'.$user_infos['bio']).'"'; ?> cols=50 rows=5 class="form-control"></textarea>
 				<p class="help-block"><span id="compteur_bio">Tapez votre texte</span></p>
 				
 			</div>

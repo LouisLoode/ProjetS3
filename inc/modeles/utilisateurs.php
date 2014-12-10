@@ -6,18 +6,21 @@ function login($email, $password) {
 	$myUser = array();
 	
 	// Préparation de la requête
-	$myRequete = 'SELECT * FROM utilisateurs WHERE email = "'.$email.'" and password = PASSWORD("'.$password.'")';
-	var_dump($myRequete);
-		echo '<hr />';
-//SELECT * FROM `user` WHERE `username` = 'userrentré' AND `password` = passwordrentré')
+	//$myRequete = 'SELECT * FROM utilisateurs WHERE email = "'.$email.'" and password = PASSWORD("'.$password.'")';
+	$myRequete = 'SELECT * FROM utilisateurs WHERE email="'.$email.'"';
+
+	//var_dump($myRequete);
+
 	// Execution de la requête
 	$myCols = requete($myRequete);
-	var_dump($myCols);
-	echo '<hr />';
+	//var_dump($myCols);
+	//echo '<hr />';
 		while($row = mysqli_fetch_array($myCols)){
 			$myUser['email'] = $row['email'];
 			$myUser['id_user'] = $row['id_user'];
 			$myUser['nom_user'] = $row['nom_user'];
+			$myUser['password'] = $row['password'];
+			$myUser['role'] = $row['role'];
 		}
 		//var_dump($myCols);
 		//print_r($myUser);
@@ -32,7 +35,7 @@ function creation_user($login, $email, $password) {
 	
 
 	$myRequete='INSERT INTO utilisateurs ( id_user , nom_user , password , email , date_inscription )
-        VALUES ("", "'.$login.'", PASSWORD("'.$password.'"), "'.$email.'", NOW() );';
+        VALUES ("", "'.$login.'", SHA1("'.$password.'"), "'.$email.'", NOW() );';
 	//var_dump($myRequete);
 	
 	// Execution de la requête
@@ -41,6 +44,37 @@ function creation_user($login, $email, $password) {
 
 		//return $myUser;
 }
+
+//Supprimer un article
+function del_user($id){
+	
+	// Préparation de la requête qui supprime l'article
+	$myRequete = 'DELETE FROM utilisateurs WHERE utilisateurs.id_user="'.$id.'";';
+	
+	// Execution de la requête
+	$result = requete($myRequete);
+		//var_dump($result);
+
+	
+	return $result;
+	
+}
+
+// Mettre un article en public
+function make_role($id){
+		
+	// Préparation de la requête qui supprime les liens Articles-Categories pour pas mettre le souc dans la table.
+	$myRequete = 'UPDATE articles SET statut="1" WHERE id_article="'.$id.'";';
+	
+	// Execution de la requête
+	$result = requete($myRequete);
+		//var_dump($result);
+	
+	return $result;
+	
+}
+
+
 
 //Vérifier les identifiants pour se connecter à la BDD
 function verif_inscription($login, $email, $pass, $confirm) {
@@ -120,7 +154,7 @@ function modif_profil($login, $email, $nom_user, $bio, $facebook, $twitter, $ins
 }
 
 //Lister les utilisateurs
-function nbr_utilisateurs($where){
+function nbr_utilisateurs($where=''){
 	
 	// La fonction de connexion doit rester active durant tout le script.
 	global $myConnexion;
@@ -150,7 +184,7 @@ function nbr_utilisateurs($where){
 }
 
 //Lister les utilisateurs
-function liste_utilisateurs(){
+function liste_utilisateurs($by='', $limit='10'){
 	
 	// La fonction de connexion doit rester active durant tout le script.
 	global $myConnexion;
@@ -159,12 +193,18 @@ function liste_utilisateurs(){
 	// Création du tableau
 	$utilisateurs = array();
 	
-	$order_by = '';
+	if(!empty($limit)) {
+	
+	    $limit = 'LIMIT '.$limit;
+	}
+		
+	// On prépare le bidouillage de la requête.
+	$ajoutRequete = $limit.';';	
 
 	// Préparation de la requête
-	$myRequete = 'SELECT * FROM utilisateurs;
-					'.$order_by;
-	//var_dump($myRequete);			
+	$myRequete = 'SELECT * FROM utilisateurs
+					'.$ajoutRequete;
+	var_dump($myRequete);			
 
 
 	// Lancement de la requête

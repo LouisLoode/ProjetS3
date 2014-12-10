@@ -24,6 +24,17 @@ $myConnexion = connect();
 // On se initialise les paramêtre de base
 include '../inc/init.php';
 
+// On vérifie que le mec est connecté et qu'il a accès à l'administration
+if ($_SESSION['role']<='1'){ 
+
+$alert = message('Vous n\'avez pas accès à cette section', 3);
+
+//On inclut la vue
+header('Location: ../index.html');
+exit;
+			
+}
+
 // On appelle le haut de la page
 include 'header.php';
 

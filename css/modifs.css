@@ -123,6 +123,17 @@ width: 12%;
 
 /* Boutons minuscules réseaux sociaux */
 
+
+
+
+.btn-social a{
+	color: #FFFFFF;
+}
+
+.btn-social a:hover{
+	color: #000000;
+}
+
 .btn-facebook-profile {
 color: #fff;
 background-color: #3c5a99;
@@ -589,4 +600,34 @@ font-size: larger;
 
 .modal-footer {
 	border-top: none;
+}
+
+.ribbon.ribbon-highlight > a, .ribbon.ribbon-highlight > span, .ribbon.ribbon-highlight > .ribbon-inner {
+background-color: #b21605;
+color: #ffffff;
+}
+
+.ribbon > a, .ribbon > span, .ribbon > .ribbon-inner {
+background-color: #b21605;
+color: #ffffff;
+}
+
+.ribbon.ribbon-highlight > span, .ribbon.ribbon-highlight > .ribbon-inner {
+color: #ffffff;
+}
+
+.bg-primary {
+ background-color: #2D2D2D; 
+}
+
+.ribbon.ribbon-highlight > span a, .ribbon.ribbon-highlight > .ribbon-inner a {
+color: #AEAEAE;
+}
+
+.section-no-margin-bottom, .section.carousel {
+border-bottom: 0px;
+}
+
+.row {
+padding-bottom: 0px; 
 }

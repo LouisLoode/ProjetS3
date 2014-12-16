@@ -1,14 +1,21 @@
 <?php 
 
-	//On inclut les modèles
+	// On inclut les modèles
 	include(dirname(__FILE__).'/modeles/articles.php');
 	include(dirname(__FILE__).'/modeles/utilisateurs.php');
+	
+	
+	// On inclut les class
+	include(dirname(__FILE__).'/libs/Parsedown.class.php'); // Parsedown
+	
+	// On lance les class
+	$Parsedown = new Parsedown();
 	
 	// Définition des rôles
 	$role = array(
 		0 => 'Inactif',
 		1 => 'Actif',
-		2 => 'Admin',
+		2 => 'Admin'
 	);
 	
 	// Création de la variable qui permet de checker si on est connecté ou non
@@ -35,7 +42,6 @@
 
 	// On initialise les variables de widget pour éviter toute erreur eventuelle
 	$widget_events = '';
-	$widget_notes = '';
 	$widget_aleatoire = '';
 	
 	$page = isset($_GET['page']) ? $page = $_GET['page'] : $page = '';
@@ -44,8 +50,9 @@
 	// On définit les pages ou l'on doit charger les widgets pour le slider (à l'accueil) ou la sidebar qui est présente sur différentes pages.
 	if(($page == '') OR ($page == 'accueil') OR ($page == 'index') OR ($page == 'articles') OR ($page == 'categories')){
 		
-	$widget_events = liste_articles('date',6,'','');	
-	$widget_notes = liste_articles('note');
+	$widget_events = liste_articles('date',6,'','', 'public');
+
+	//var_dump($widget_events);	
 	$widget_aleatoire = liste_articles('alea');
 	
 	//var_dump($widget_notes);

@@ -8,6 +8,8 @@
 <?php
 //print_r($widget_events);
 $derniereCle = $widget_events[0];
+
+//var_dump($widget_events);
 	
 foreach($widget_events as $data)
 {
@@ -53,47 +55,6 @@ foreach($widget_events as $data)
 						</a>
 
 					</aside>
-				<aside class="widget">
-
-						<h2 class="widget-title ribbon"><span>Les mieux notés</span></h2>
-
-						<div class="entries row">
-
-<?php
-foreach($widget_notes as $data)
-{
-?>
-							<article class="type-post style-media-list media col-sm-6 col-md-12">
-
-								<!-- to disable lazy loading, remove data-src and data-src-retina -->
-								<img src="http://placehold.it/80x80" data-src="http://placehold.it/80x80" data-src-retina="http://placehold.it/160x160" width="80" height="80" class="media-object pull-left" alt="" style="opacity: 1;">
-
-								<!--fallback for no javascript browsers-->
-								<noscript>
-									&lt;img src="http://placehold.it/80x80" alt=""&gt;
-								</noscript>
-
-								<div class="media-body">
-									<h3 class="entry-title">
-										<a href="articles-<?php echo $data['id_article'];?>.html" rel="bookmark"><?php echo $data['titre']; ?></a>
-									</h3>
-									<div class="entry-meta">
-										<span class="entry-date"><a href="articles-<?php echo $data['id_article']; ?>.html">le <time datetime="<?php echo $data['date']; ?>"><?php echo $data['date']; ?></time></a></span>
-										<span class="category">Dans <a href="categorie-<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></span>
-									</div>
-								</div>
-
-							</article>
-<?php
-}	
-?>
-
-						</div>
-
-					</aside>
-					
-					
-					
 					
 				<aside class="widget">
 

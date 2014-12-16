@@ -30,6 +30,12 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 
 }
 
+// On définit les URL pour la pagination.
+$urlPagination = array(
+	'avant' => 'index.php?page=liste_articles&p=',
+	'apres' => ''
+);
+	
 
 ?>
 
@@ -39,7 +45,7 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
                         <h1 class="page-header">Liste des articles <small>ou <a href="index.php?page=dashboard">retourner au dashboard</a></small></h1>
                     </div>
                     <div class="col-lg-12">
-	                    <a href="index.php?page=ajout_article" class="btn btn-primary btn-sm pull-left">Ajouter une échéance</a><br /><br />
+	                    <a href="index.php?page=ajout_article" class="btn btn-primary btn-sm pull-left">Ajouter un article</a><br /><br />
 	                </div>
                     <div class="col-lg-12">
 	                    
@@ -52,6 +58,7 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 						<th>Catégories</th>
 						<th>Visibilité</th>
 						<th>Auteur</th>
+						<th>Date</th>
 						<th>Gestion</th>
 						</tr>
 						<?php
@@ -66,7 +73,7 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 						$id_user = '';
 						
 						// Compte le nombre de lignes du tableau renvoyé par la variable liste_articles.
-						$nb_articles = count_articles();
+						$nb_articles = count_articles('', '', 'tout');
 						
 						$articles_pages = DONNEE_LIGNES;
 						
@@ -83,7 +90,7 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 						//var_dump($articles);
 						
 						// On boucle les articles
-						foreach($articles as $data)
+						foreach($articles as $key => $data)
 						{
 							
 						$couleur_statut = ($data['statut']=='1') ? 'success' : 'warning';
@@ -95,6 +102,7 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 						<td><a href="<?php echo (($data['statut']=='1') ? 'index.php?page=liste_articles&brouillon='.$data['id_article'] : 'index.php?page=liste_articles&public='.$data['id_article']); ?>"><span class="label label-<?php echo $couleur_statut; ?>"><?php echo (($data['statut']=='1') ? 'Publié' : 'Brouillon'); ?></span></td>
 	
 						<td><a href="../utilisateurs-<?php echo $data['id_user']; ?>.html"><?php echo $data['nom_user']; ?></a></td>
+						<td><?php echo $data['date']; ?></td>
 						<td>
 						<div class="btn-group">
 						  <a href="index.php?page=ajout_article&modif=<?php echo $data['id_article']; ?>" class="btn btn-primary btn-sm">Modifier</a>
@@ -135,20 +143,26 @@ if (isset($_GET['brouillon'])) // Si l'on demande de mettre une news en privée 
 						</table>
 						
 						<ul class="pagination center-block">
-						<li><a href="#">«</a></li>
-						<?php
-							foreach( $listePage as $num )
-							{
-							   if( $num == $page )
-							      echo '<li class="active"><span>' . $num . '</span></li>';
-							   elseif( $num == '...' )
-							      echo '<li><a href="#" data-toggle="modal" data-target="#selectionPage"> ... </a></li>';
-							   else
-							      echo '<li><a href="' . $urlPagination['avant'] . $num . $urlPagination['apres'] . '">' . $num . '</a></li>';
-							}
-						?>
-						<li><a href="#">»</a></li>
+<?php
+ echo ((reset($listePage)==$page) ? '' : '<li><a href="'.$urlPagination['avant'].($page-1).$urlPagination['apres'].'">«</a></li>'); 
+
+	foreach( $listePage as $num )
+	{
+	   if( $num == $page )
+	      echo '<li class="active"><span>' . $num . '</span></li>';
+	   elseif( $num == '...' )
+	      echo '<li><a href="#" data-toggle="modal" data-target="#selectionPage"> ... </a></li>';
+	   else
+	      echo '<li><a href="' . $urlPagination['avant'] . $num . $urlPagination['apres'] . '">' . $num . '</a></li>';
+	}
+	
+echo ((end($listePage)==$page) ? '' : '<li><a href="'.$urlPagination['avant'].($page+1).$urlPagination['apres'].'">»</a></li>');
+?>
 						</ul>
+						
+						
+						
+						
 
 						
 

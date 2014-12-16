@@ -28,7 +28,8 @@ if($_POST){
 		
 		$alert = message('Votre inscription s\'est bien déroulée.', 1);
 		
-		include 'accueil.php';
+		header('Location: index.html');
+		exit;
         
    	}else{
 

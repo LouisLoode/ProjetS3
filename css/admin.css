@@ -1,0 +1,25 @@
+a {
+	color: #d42927;
+}
+
+a:hover{
+	color: #F40000;
+}
+.btn-primary{
+	background-color: #d42927;
+	border-color: #d42927;
+}
+.btn-primary:hover{
+	color: #000;
+	background-color: #F40000;
+	border-color: #F40000;
+}
+.pagination>.active>span{
+	background-color: #d42927;
+	border-color: #d42927;
+}
+.pagination>.active>span:hover{
+	color: #000;	
+	background-color: #F40000;
+	border-color: #F40000;
+}

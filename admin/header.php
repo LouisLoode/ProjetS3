@@ -17,11 +17,17 @@
     <!-- MetisMenu CSS -->
     <link href="../vendor/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <!-- SB Admin 2 CSS -->
     <link href="../vendor/sb-admin-2/sb-admin-2.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../css/admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Le CSS -->
+	<link href="../vendor/pagedown-bootstrap-master/css/jquery.pagedown-bootstrap.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,8 +65,6 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Profil de l'utilisateur</a></li>
-                        <li class="divider"></li>
                         <li><a href="../deconnexion.html"><i class="fa fa-sign-out fa-fw"></i> Déconnexion</a>
                         </li>
                     </ul>
@@ -92,10 +96,10 @@
                             <a href="#"><i class="fa fa-folder fa-fw"></i> Catégories<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Ajouter une catégorie</a>
+                                	<a href="index.php?page=liste_cats">Gérer les catégories</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html">Gérer les catégories</a>
+                                    <a href="index.php?page=ajout_cat">Ajouter une catégorie</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

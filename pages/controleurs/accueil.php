@@ -19,7 +19,6 @@ $urlPagination = array(
 // Compte le nombre de lignes du tableau renvoyé par la variable liste_articles.
 $nb_articles = count_articles($id_cat, $id_user);
 
-
 $articles_pages = ARTICLES_PAGES;
 
 // On divise le nombre d'articles du tableau par le nombre d'éléments qu'on veut par pages.

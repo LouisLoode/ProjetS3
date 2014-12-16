@@ -1,26 +1,186 @@
 <?php
 
-//Ajout d'un article
-function ajout_article($titre, $contenu, $id_user){
+  /**
+    * Ajoute un article à la BDD
+    * @retun 0 si pas d'erreur
+    */
+function ajout_article($titre, $date, $introduction, $contenu, $categorie, $en_avant='0', $statut='0'){
 	
-	// Préparation de la requête
-	$myRequete = 'SELECT nom_user, email, id_profil FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
+	$i = 0;
 	
-	//var_dump($myRequete);
+	$id_user = $_SESSION['id'];
 	
-	// Execution de la requête
-	$myCols = requete($myRequete);
+	require('../libs/UploadHandler.class.php');
+	$upload_handler = new UploadHandler();
 	
-		while($row = mysqli_fetch_array($myCols)){
-			$myUser['email'] = $row['email'];
-			$myUser['id_profil'] = $row['id_profil'];
-		}
-		//var_dump($myCols);
-		//var_dump($myUser);
-		return $myUser;
+			if(empty($titre)){
+			
+				$alert = message('Le titre n\'a pas été renseigné.', 3);
+				$i++;
+					
+			}elseif(empty($date)){
+				
+				$alert = message('La date n\'a pas été renseigné.', 3);
+				$i++;
+					
+			}elseif(empty($contenu)){
+				
+				$alert = message('Le contenu n\'a pas été renseigné.', 3);
+				$i++;
+				
+			}/*elseif(empty($categories)){
+				$alert = message('Vous n\'avez pas séléctionné de catégorie.', 3);
+				$i++;
+			}*/
+			else
+		    {
+
+	        		 // On crée une nouvelle entrée dans la table.
+		    		$myRequete = 'INSERT INTO articles(id_article, titre, introduction, contenu, statut, en_avant, date, id_user, id_cat) VALUES("", "'.$titre.'" ,"'.$introduction.'","'.$contenu.'", "'.$statut.'", "'.$en_avant.'", "'.$date.'", "'.$id_user.'", "'.$categorie.'")';
+		    		//var_dump($myRequete);
+		    		
+		    		$myCols = requete($myRequete);
+		    		//var_dump($myCols);
+    		}
+
+	return $i;
 }
 
-//Supprimer un article
+  /**
+    * Modification d'un article
+    * @retun 0 si pas d'erreurs
+    */
+function modif_article($id_cat, $titre, $date, $introduction, $contenu, $categorie, $en_avant='0', $statut='0'){
+
+	$i = 0;
+	
+	$id_user = $_SESSION['id'];
+	
+			if(empty($titre)){
+			
+				$alert = message('Le titre n\'a pas été renseigné.', 3);
+				$i++;
+					
+			}elseif(empty($id_article)){
+				
+				$alert = message('L\'ID n\'a pas été renseigné.', 3);
+				$i++;
+					
+			}elseif(empty($date)){
+				
+				$alert = message('La date n\'a pas été renseigné.', 3);
+				$i++;
+					
+			}elseif(empty($contenu)){
+				
+				$alert = message('Le contenu n\'a pas été renseigné.', 3);
+				$i++;
+				
+			}/*elseif(empty($categories)){
+				$alert = message('Vous n\'avez pas séléctionné de catégorie.', 3);
+				$i++;
+			}*/
+			else
+		    {
+
+	        		 // On crée une nouvelle entrée dans la table.
+		    		$myRequete = 'UPDATE articles SET titre="'.$titre.'", introduction="'.$introduction.'", contenu="'.$contenu.'", statut="'.$statut.'", en_avant="'.$en_avant.'", date="'.$date.'", id_user="'.$id_user.'", id_cat="'.$categorie.'" WHERE articles.id_article="'.$id_article.'";';
+		    		var_dump($myRequete);
+		    		echo '<br />';
+		    		$myCols = requete($myRequete);
+		    		var_dump($myCols);
+    		}
+
+	return $i;
+}
+
+  /**
+    * Ajoute une catégorie
+    * @retun 0 si pas d'erreurs
+    */
+function ajout_cat($titre, $menu='0', $ordre='10'){
+
+	$i = 0; 
+	
+			if(empty($titre)){
+			
+				$alert = message('Le titre de la catégorie n\'a pas été renseigné.', 3);
+				$i++;
+					
+			}elseif(empty($ordre)){
+				
+				$alert = message('La date n\'a pas été renseigné.', 3);
+				$i++;
+	
+			}/*elseif(empty($categories)){
+				$alert = message('Vous n\'avez pas séléctionné de catégorie.', 3);
+				$i++;
+			}*/
+			else
+		    {
+
+	        		 // On crée une nouvelle entrée dans la table.
+		    		$myRequete = 'INSERT INTO categories(id_cat, nom_cat, menu, ordre) VALUES("", "'.$titre.'" ,"'.$menu.'","'.$ordre.'")';
+		    		//var_dump($myRequete);
+		    		
+		    		$myCols = requete($myRequete);
+		    		//var_dump($myCols);
+
+    		}
+
+	return $i;
+}
+
+  /**
+    * Modifie une catégorie
+    * @retun 0 si pas d'erreurs
+    */
+function modif_cat($id_article, $titre, $menu='0', $ordre='10'){
+	
+	$i = 0;
+	
+			if(empty($titre)){
+			
+				$alert = message('Le titre n\'a pas été renseigné.', 3);
+				$i++;
+					
+			}elseif(empty($id_article)){
+				
+				$alert = message('L\'ID n\'a pas été renseigné.', 3);
+				$i++;
+					
+			}elseif(empty($date)){
+				
+				$alert = message('La date n\'a pas été renseigné.', 3);
+				$i++;
+					
+			}elseif(empty($contenu)){
+				
+				$alert = message('Le contenu n\'a pas été renseigné.', 3);
+				$i++;
+				
+			}/*elseif(empty($categories)){
+				$alert = message('Vous n\'avez pas séléctionné de catégorie.', 3);
+				$i++;
+			}*/
+			else
+		    {
+
+	        		 // On crée une nouvelle entrée dans la table.
+		    		$myRequete = 'UPDATE categories SET titre="'.$titre.'", introduction="'.$introduction.'", contenu="'.$contenu.'", statut="'.$statut.'", en_avant="'.$en_avant.'", date="'.$date.'", id_user="'.$id_user.'", id_cat="'.$categorie.'" WHERE articles.id_article="'.$id_article.'";';
+		    		var_dump($myRequete);
+		    		echo '<br />';
+		    		$myCols = requete($myRequete);
+		    		var_dump($myCols);
+    		}
+
+	return $i;
+}
+
+  /**
+    * Supprimer un article
+    * @retun résultat de la requête
+    */
 function del_article($id){
 	
 	// Préparation de la requête qui supprime l'article
@@ -29,9 +189,53 @@ function del_article($id){
 	// Execution de la requête
 	$result = requete($myRequete);
 		//var_dump($result);
+	
+	return $result;
+	
+}
+
+  /**
+    * Supprimer un catégorie
+    * @retun résultat de la requête
+    */
+function del_cat($id){
+	
+	// Préparation de la requête qui supprime l'article
+	$myRequete = 'DELETE FROM categories WHERE categories.id_cat="'.$id.'";';
+	
+	// Execution de la requête
+	$result = requete($myRequete);
+		//var_dump($result);
+
+	
+	return $result;
+	
+}
+
+  /**
+    * Supprimer un article
+    * @retun résultat de la requête
+    */
+function ajout_menu_cat($id){
 		
 	// Préparation de la requête qui supprime les liens Articles-Categories pour pas mettre le souc dans la table.
-	$myRequete = 'DELETE FROM articles_categories WHERE articles_categories.id_article="'.$id.'";';
+	$myRequete = 'UPDATE categories SET menu=1 WHERE id_cat="'.$id.'";';
+	//var_dump($myRequete);
+	
+	// Execution de la requête
+	$result = requete($myRequete);
+		//var_dump($result);
+	
+	return $result;
+	
+}
+
+// Retrait d'une catégorie dans le menu
+function del_menu_cat($id){
+		
+	// Préparation de la requête qui supprime les liens Articles-Categories pour pas mettre le souc dans la table.
+	$myRequete = 'UPDATE categories SET menu=0 WHERE id_cat="'.$id.'";';
+	//var_dump($myRequete);
 	
 	// Execution de la requête
 	$result = requete($myRequete);
@@ -220,13 +424,12 @@ function liste_articles($by='autre', $id_cat='', $id_user='', $limit='10', $stat
 
 	// Préparation de la requête
 	$myRequete = 'SELECT * 
-					FROM articles, utilisateurs, categories, articles_categories 
+					FROM articles, utilisateurs, categories
 					WHERE articles.id_user = utilisateurs.id_user 
-					AND articles_categories.id_article = articles.id_article 
-					AND articles_categories.id_cat = categories.id_cat
+					AND articles.id_cat = categories.id_cat
 					'.$ajoutRequete;
 					
-	// var_dump($myRequete);			
+	//var_dump($myRequete);			
 
 	 //echo '<hr />';
 
@@ -250,7 +453,7 @@ function liste_articles($by='autre', $id_cat='', $id_user='', $limit='10', $stat
  }
 
 //Compter les articles
-function count_articles($id_cat='', $id_user=''){
+function count_articles($id_cat='', $id_user='', $public=''){
 	
 	// Création du tableau
 	$articles = array();
@@ -259,6 +462,8 @@ function count_articles($id_cat='', $id_user=''){
 	$by_user = null;
 	
 	$by_cat = null;
+	
+	$by_statut = null;
 	
 	if(!empty($id_cat)) {
 	    $by_cat = 'AND categories.id_cat = "'.$id_cat.'"';
@@ -270,18 +475,22 @@ function count_articles($id_cat='', $id_user=''){
 					AND articles.id_user = "'.$id_user.'"';
 	}
 	
+	if(empty($public)) {
+	
+	    $by_statut = 'AND articles.statut = "1"';
+	}
+	
 	
 	// On prépare le bidouillage de la requête.
-	$ajoutRequete = $by_cat.'
+	$ajoutRequete = $by_statut.' 
+					'.$by_cat.'
 					'.$by_user.';';	
 
 	// Préparation de la requête
 	$myRequete = 'SELECT COUNT(*) AS total
-					FROM articles, utilisateurs, categories, articles_categories
+					FROM articles, utilisateurs, categories
 					WHERE articles.id_user = utilisateurs.id_user 
-					AND articles.statut = "1"
-					AND articles_categories.id_article = articles.id_article
-					AND  articles_categories.id_cat = categories.id_cat
+					AND  articles.id_cat = categories.id_cat
 					'.$ajoutRequete;
 	 //var_dump($myRequete);			
 
@@ -299,6 +508,37 @@ function count_articles($id_cat='', $id_user=''){
 
 }
 
+//Compter les categories
+function count_cats(){
+	
+	// Création du tableau
+	$categories = array();
+	
+	// On prépare le bidouillage de la requête.
+	/*$ajoutRequete = $by_statut.' 
+					'.$by_cat.'
+					'.$by_user.';';	*/
+
+	// Préparation de la requête
+	$myRequete = 'SELECT COUNT(*) AS total
+					FROM categories
+					';
+	 //var_dump($myRequete);			
+
+
+	// Lancement de la requête
+	$req = requete($myRequete);
+	//var_dump($myCols);
+
+	$data = mysqli_fetch_assoc($req);
+	
+	$nbrCats = $data['total'];
+
+		// Renvoi du tableau pour utilisation future
+        return $nbrCats;
+
+}
+
 //Afficher l'article sélectionné
 function display_article($id_article){
 	
@@ -310,10 +550,9 @@ function display_article($id_article){
 	// Préparation de la requête
 	
 	$myRequete = 'SELECT *
-						FROM articles, articles_categories, categories, utilisateurs
+						FROM articles, categories, utilisateurs
 						WHERE articles.id_user = utilisateurs.id_user
-						AND articles_categories.id_article = articles.id_article
-						AND  articles_categories.id_cat = categories.id_cat
+						AND  articles.id_cat = categories.id_cat
 						AND articles.id_article = '.$id_article.'';
 	
 	

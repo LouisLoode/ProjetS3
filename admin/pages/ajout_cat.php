@@ -2,37 +2,21 @@
 /*
 http://stackoverflow.com/questions/9852536/one-article-multiple-categories-system-in-php-sql	
 */
-	// On précise qu'on veut charger toutes les ressources qui sont nécéssaire à l'utilisation du formulaire.
-	$page_type = true;
 	
 if ($_POST)
 {
 		
 	    $titre = $myConnexion->real_escape_string($_POST['titre']);	// Titre
-	    $date = $myConnexion->real_escape_string($_POST['date']);
-		$introduction = $myConnexion->real_escape_string($_POST['contenu']); //Description
-	    $contenu = $myConnexion->real_escape_string($_POST['contenu']); //Description
-	    $categories = str_replace('cat-', '', $_POST['categorie']);
+	    $menu = (($_POST['menu']=='1') ? '1' : '0'); //Dans le menu ?
+		$ordre = $myConnexion->real_escape_string($_POST['ordre']); //Description
 	    $id_publication = $myConnexion->real_escape_string($_POST['id_publication']);
-	    if($_POST['public']=='public'){
-		    $valide = '1';
-	    }else{
-		    $valide = '0';
-	    }
-	     
-		$en_avant = (($_POST['en_avant']=='1') ? '1' : '0'); //En avant
-	    
-	    
-	    require('UploadHandler.class.php');
-		$upload_handler = new UploadHandler();
 
   	// On vérifie si c'est une modification de news ou non.
 		if ($_POST['id_publication'] == 0)
 	    {
-		    
-		    require('UploadHandler.class.php');
-			$upload_handler = new UploadHandler();
-			if (ajout_article($titre, $date, $introduction, $contenu, $categories, $en_avant, $valide)==0)
+
+
+			if (ajout_cat($titre, $menu, $ordre)==0)
 			{
 
 				 $alert = message('L\'article a bien été créé.', 1);
@@ -49,7 +33,7 @@ if ($_POST)
 		else
 		{
 
-			if (modif_article($id_publication, $titre, $date, $introduction, $contenu, $categories, $en_avant, $valide)==0)
+			if (modif_cat($id_publication, $titre, $menu, $ordre)==0)
 			{
 
 				 $alert = message('L\'article a bien été modifié.', 1);
@@ -87,10 +71,8 @@ else // C'est qu'on rédige une nouvelle echeance.
 {
     // Les variables $titre et $contenu sont vides, puisque c'est une nouvelle echeance.
     $titre = '';
-    $contenu = '';
-    $introduction = '';
-	$en_avant = '0';
-	$categorie = '';
+    $ordre = '';
+    $menu = 0;
     $id_publication = 0; // La variable vaut 0, donc on se souviendra que ce n'est pas une modification.
 }
 
@@ -104,6 +86,8 @@ else // C'est qu'on rédige une nouvelle echeance.
                         <h1 class="page-header">Création d'un article <small>ou <a href="index.php?page=liste_articles">retourner à la liste d'articles</a></small></h1>
                     </div>
                     <div class="col-lg-12">
+                    <div class="form-group col-md-6">
+	                    
 	                          <form role="form" method="post" action="<?php $_SERVER['PHP_SELF']?>">
 
 					        <div class="form-group col-md-12">
@@ -112,52 +96,10 @@ else // C'est qu'on rédige une nouvelle echeance.
 					        </div>
 					
 					        <div class="form-group col-md-12">
-					          <label for="date">Date</label>
-					            <input type="date" class="form-control" name="date" id="Date" <?php echo (($titre=='') ? 'placeholder="Date"' : 'value="'.$date.'"'); ?>>
-					        </div>      
-					
-					        <div class="form-group textarea col-md-12">
-					          <label for="introduction">Introduction</label>
-					            <textarea type="text" class="form-control" name="introduction" rows="5" <?php echo (($introduction=='') ? 'placeholder="Introduction de l\'article">' : '>'.$introduction); ?></textarea>
-					        </div>
-					        
-					        <div class="form-group textarea col-md-12">
-					          <label for="contenu">Contenu</label>
-					            <textarea type="text" class="form-control" name="contenu" rows="10" <?php echo (($contenu=='') ? 'placeholder="Contenu de l\'article">' : '>'.$contenu); ?></textarea>
-					        </div>
-
-<!-- Ou qu'il est pas beau le br -->		        
-<br />
-					        
-<div class="textarea col-md-12">
-				<div  class="form-group col-md-6">         
-					<div class="chat-panel panel panel-default">
-						<div class="panel-heading">
-                            <i class="fa fa-folder fa-fw"></i>
-                            Catégories <small>(entre parenthése pour les catégories hors du menu)</small>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <ul class="chat">
-<?php
-// Récupération des catégories pour le formulaire et on boucle tout ça
-$categories_menu = liste_categories();	
-	
-// On fait la boucle qui génére le menu.
-foreach($categories_menu as $data_cat)
-{
-?>
-                                <li class="left clearfix">
-                                  	<input type="radio" name="categorie" id="<?php echo $data_cat['id_cat']; ?>" value="cat-<?php echo $data_cat['id_cat']; ?>" <?php echo (($data_cat['id_cat']==$categorie) ? 'checked' : ''); ?>> <label for="<?php echo $data_cat['id_cat']; ?>"><?php echo (($data_cat['menu']=='1') ? $data_cat['nom_cat'] : '('.$data_cat['nom_cat'].')'); ?> </label>
-					          
-                                </li>
-<?php
-}
-?>
-                            </ul>
-                        </div>
-                    </div>
-				</div>
+					          <label for="date">Ordre</label>
+					            <input type="date" class="form-control" name="ordre" id="Ordre" <?php echo (($ordre=='') ? 'placeholder="Ordre"' : 'value="'.$ordre.'"'); ?>>
+					        </div>   
+	                </dv>   
                     
 				<div  class="form-group col-md-6">         
 					<div class="chat-panel panel panel-default">
@@ -168,13 +110,6 @@ foreach($categories_menu as $data_cat)
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="chat">
-					        <label class="radio-inline">
-					          <input type="radio" name="public" id="public" value="public"> Public
-					        </label>
-					        <label class="radio-inline">
-					          <input type="radio" name="public" id="brouillon" value="brouillon">Non Public
-					        </label>
-					        </div>
 					        <div class="checkbox">
 					          <label>
 
@@ -185,7 +120,7 @@ foreach($categories_menu as $data_cat)
                         </div>
                     </div>
 				</div>                 
-                    
+                    </div>
                     
 					    <input type="hidden" name="id_publication" value="<?php echo $id_publication; ?>" />
 					          

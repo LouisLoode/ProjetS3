@@ -39,13 +39,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-4 col-sm-3 col-md-3">
-					<span class="button-checkbox">
-						<button type="button" class="btn" data-color="info" tabindex="7"> J'accepte</button>
-                        <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
-					</span>
-				</div>
-				<div class="col-xs-8 col-sm-9 col-md-9">
+				<div class="col-md-12">
 					 En cliquant sur <strong class="label label-success">Créer mon compte</strong>, vous acceptez les <a href="#" data-toggle="modal" data-target="#t_and_c_m">Conditions d'utilisations</a> que nous avons définit sur le site, ceci inclut les cookies.
 				</div>
 			</div>

@@ -17,10 +17,10 @@
 					</div>
 
 					<header class="entry-header">
-						<h3 class="entry-title"><a href="single.html">This can be use for hand picked featured posts by staffs - sit voluptatem accusantium doloremque laudantium</a> </h3>
+						<h3 class="entry-title"><a href="#">Titre de l'article de la semaine</a> </h3>
 						<div class="entry-meta">
-							<span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-							<span class="entry-author"> by <a href="profil.php">John Doe</a></span>
+							<span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">Il y a 20H</time></a></span>
+							<span class="entry-author"> par <a href="#">Test</a></span>
 						</div>
 					</header>
 
@@ -48,7 +48,7 @@
 					</div>
 
 					<header class="entry-header">
-						<h3 class="entry-title"><a href="single.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a> </h3>
+						<h3 class="entry-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a> </h3>
 						<div class="entry-meta">
 							<span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
 							<span class="entry-author"> by <a href="profil.php">John Doe</a></span>
@@ -169,7 +169,7 @@
 
 					<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">
-							<li class="active">Accueil -> <?php echo $_SESSION['role'];?></li>
+							<li class="active">Accueil</li>
 						</ol>
 					</div>
 					

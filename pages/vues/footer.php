@@ -28,12 +28,12 @@
 
 						<h4 class="widget-title">Suivez nous</h4>
 
-					<a class="btn btn-facebook-profile" href="https://www.facebook.com/dealerdesons"><i class="fa fa-facebook"></i></a>
-					<a class="btn btn-twitter-profile" href="#"><i class="fa fa-twitter"></i></a>
-					<a class="btn btn-google-plus-profile" href="#"><i class="fa fa-google-plus"></i></a>
-					<a class="btn btn-soundcloud-profile" href="#"><i class="fa fa-soundcloud"></i></a>
-					<a class="btn btn-instagram-profile" href="#"><i class="fa fa-instagram"></i></a>
-					<a class="btn btn-youtube-profile" href="https://www.youtube.com/user/DdSOfficiel"><i class="fa fa-youtube"></i></a>
+					<a class="btn btn-social btn-facebook-profile" href="https://www.facebook.com/dealerdesons"><i class="fa fa-facebook"></i></a>
+					<a class="btn btn-social btn-twitter-profile" href="#"><i class="fa fa-twitter"></i></a>
+					<a class="btn btn-social btn-google-plus-profile" href="#"><i class="fa fa-google-plus"></i></a>
+					<a class="btn btn-social btn-soundcloud-profile" href="#"><i class="fa fa-soundcloud"></i></a>
+					<a class="btn btn-social btn-instagram-profile" href="#"><i class="fa fa-instagram"></i></a>
+					<a class="btn btn-social btn-youtube-profile" href="https://www.youtube.com/user/DdSOfficiel"><i class="fa fa-youtube"></i></a>
 		
 					</div><!--/.col-3-->
 					
@@ -71,7 +71,7 @@
 
 				<div class="container aligncenter">
 
-					<p>&amp;amp;copy;2012-2014 par <a href="http://dealerdesons.com">DealerDeSons</a>. Tout droits réservés. <p>
+					<p>&copy;2012-2014 par <a href="http://dealerdesons.com">DealerDeSons</a>. Tout droits réservés. <p>
 					<p>Page exécutée en <?php echo $page_load_time; ?> sec - <?php echo $query_count <= 1 ?  intval($query_count).' requête SQL' : intval($query_count).' requêtes SQL';?></p>
 
 				</div>

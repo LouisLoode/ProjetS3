@@ -79,9 +79,6 @@ function make_role($id){
 //Vérifier les identifiants pour se connecter à la BDD
 function verif_inscription($login, $email, $pass, $confirm) {
 	
-	// La fonction de connexion doit rester active durant tout le script.
-	global $myConnexion;
-	
 	$i = 0;
 
 	// Préparation de la requête
@@ -131,26 +128,17 @@ function verif_inscription($login, $email, $pass, $confirm) {
 }
 
 // Modifie le profil de l'utilisateur
-function modif_profil($login, $email, $nom_user, $bio, $facebook, $twitter, $instagram, $vimeo, $tumblr, $linkedin, $soundcloud, $youtube) {
-	
-	// La fonction de connexion doit rester active durant tout le script.
-	global $myConnexion;
-	
-	$myUser = array();
+function modif_profil($id_user, $email, $nom_user, $bio, $facebook, $twitter, $instagram, $vimeo, $tumblr, $linkedin, $soundcloud, $youtube) {
 	
 	// Préparation de la requête
-	$myRequete = 'SELECT nom_user, email, id_profil FROM utilisateurs WHERE email="'.$email.'" and password=PASSWORD("'.$password.'");';
-	
-
-	$myRequete='INSERT INTO utilisateurs ( id_user , nom_user , password , email , date_inscription )
-        VALUES ("", "'.$login.'", PASSWORD("'.$password.'"), "'.$email.'", NOW() );';
+	$myRequete = 'UPDATE `utilisateurs` SET `nom_user` = "'.$login.'", `email` = "'.$email.'", `bio` = "'.$bio.'", `facebook` = "'.$facebook.'", `twitter` = "'.$twitter.'", `instagram` = "'.$instagram.'", `vimeo` = "'.$vimeo.'", `tumblr` = "'.$tumblr.'", `linkedin` = "'.$linkedin.'", `soundcloud` = "'.$soundcloud.'", `youtube` = "'.$youtube.'" WHERE `id_user` = "'.$id_user.'";';
 	//var_dump($myRequete);
 	
 	// Execution de la requête
 	$myCols = requete($myRequete);
 
 
-		//return $myUser;
+	return $myCols;
 }
 
 //Lister les utilisateurs

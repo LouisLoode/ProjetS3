@@ -51,23 +51,23 @@
  * 6. Responsive
  */
 body {
-  background-color: #f8f1f1;
-  color: #444444;
+  background-color: #2d2d2d;
+  color: #ededed;
 }
 a {
-  color: #262626;
+  color: #ffffff;
 }
 a:hover {
-  color: #000000;
+  color: #ffffff;
 }
 .bg-page {
-  background-color: #f8f1f1;
+  background-color: #2d2d2d;
 }
 .bg-base {
-  background-color: #ffffff;
+  background-color: #434343;
 }
 .bg-base > .entries > .entry:not(.style-grid) .entry-title a {
-  color: #000000;
+  color: #ffffff;
 }
 .bg-primary {
   background-color: #dfdfdf;
@@ -76,7 +76,7 @@ a:hover {
   background-color: #232323;
 }
 .bg-secodary {
-  background-color: #efe0e0;
+  background-color: #3a3a3a;
 }
 .bg-bar {
   background-color: #161616;
@@ -86,8 +86,8 @@ a:hover {
   border-bottom: 4px solid #161616;
 }
 .form-control {
-  background-color: #f8f1f1;
-  border-color: rgba(69, 69, 69, 0.3);
+  background-color: #2d2d2d;
+  border-color: rgba(237, 237, 237, 0.3);
 }
 /**************************************************************************
  * 2. Header 
@@ -159,10 +159,10 @@ a:hover {
   background-color: #161616;
 }
 .header-navbar .nav-pages a {
-  color: #c58b8b;
+  color: #7a7a7a;
 }
 .header-navbar .nav-pages a:hover {
-  color: #000000;
+  color: #ffffff;
   background-color: transparent;
 }
 .nav.navbar-nav li .subnav-wrapper {
@@ -194,11 +194,11 @@ a:hover {
  * 		4.1 Base
  */
 .comments-count-balloon {
-  color: #444444;
-  background-color: #ffffff;
+  color: #ededed;
+  background-color: #434343;
 }
 .comments-count-balloon:after {
-  border-left-color: #ffffff;
+  border-left-color: #434343;
 }
 .comments-count-balloon.bg-focus {
   background-color: #232323;
@@ -209,13 +209,13 @@ a:hover {
 }
 .comments-count-balloon.bg-primary {
   background-color: #dfdfdf;
-  color: #232323;
+  color: #ffffff;
 }
 .comments-count-balloon.bg-primary:after {
   border-left-color: #dfdfdf;
 }
 .comments-count-balloon em {
-  color: #444444;
+  color: #ededed;
 }
 .ribbon > a,
 .ribbon > span,
@@ -224,18 +224,18 @@ a:hover {
   -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
   background-color: #dfdfdf;
-  color: #232323;
+  color: #ffffff;
 }
 .ribbon a:hover {
   text-decoration: none;
 }
 .ribbon > span,
 .ribbon > .ribbon-inner {
-  color: #232323;
+  color: #ffffff;
 }
 .ribbon > span a,
 .ribbon > .ribbon-inner a {
-  color: #232323;
+  color: #ffffff;
 }
 .ribbon > span a:hover,
 .ribbon > .ribbon-inner a:hover {
@@ -308,7 +308,7 @@ a:hover {
 .style-single h3,
 .style-single h4,
 .style-single h5 {
-  color: #000000;
+  color: #ffffff;
 }
 .style-single h1,
 .style-single h2,
@@ -322,7 +322,7 @@ a:hover {
   border-bottom-color: #9d9d9d;
 }
 .page-header .page-title {
-  color: #000000;
+  color: #ffffff;
 }
 .style-hero.hero-nav .small {
   color: #ffffff;
@@ -331,8 +331,8 @@ a:hover {
   border-top-color: #ffffff;
 }
 .style-thumbnail-text {
-  border-top: 1px solid #ecd9d9;
-  border-left: 1px solid #ecd9d9;
+  border-top: 1px solid #1b1b1b;
+  border-left: 1px solid #1b1b1b;
 }
 .style-thumbnail-text:first-child {
   border-left: none;
@@ -365,19 +365,19 @@ a:hover {
  * 		4.4. Lists
  */
 .coverageList {
-  border: 5px solid #ffffff;
+  border: 5px solid #434343;
   /* Fallback for web browsers that doesn't support RGBa */
-  background-color: #ffffff;
+  background-color: #434343;
   /* RGBa with 0.6 opacity */
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(66, 66, 66, 0.6);
   /* For IE 5.5 - 7 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#99ffffff', endColorstr='#99ffffff');
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#99424242', endColorstr='#99424242');
   /* For IE 8 */
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99ffffff, endColorstr=#99ffffff)";
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99424242, endColorstr=#99424242)";
 }
 .tagcloud a,
 .post-tags a {
-  color: #232323;
+  color: #ffffff;
   /* Fallback for web browsers that doesn't support RGBa */
   background-color: #dfdfdf;
   /* RGBa with 0.6 opacity */
@@ -418,7 +418,7 @@ a:hover {
 .pagination > li > a,
 .pagination > li > span:hover {
   background-color: transparent;
-  color: #262626;
+  color: #ffffff;
 }
 .pagination > li.active > span,
 .pagination > li.active > span:hover,
@@ -431,20 +431,20 @@ a:hover {
  */
 .sidenav .nav {
   /* Fallback for web browsers that doesn't support RGBa */
-  background-color: #f8f1f1;
+  background-color: #2d2d2d;
   /* RGBa with 0.6 opacity */
-  background-color: rgba(248, 241, 241, 0.4);
+  background-color: rgba(46, 46, 46, 0.4);
   /* For IE 5.5 - 7 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66f8f1f1', endColorstr='#66f8f1f1');
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#662e2e2e', endColorstr='#662e2e2e');
   /* For IE 8 */
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66f8f1f1, endColorstr=#66f8f1f1)";
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#662e2e2e, endColorstr=#662e2e2e)";
 }
 .sidenav .nav > li {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #434343;
 }
 .sidenav .nav > li > a:hover,
 .sidenav .nav > li > a:focus {
-  background-color: #f8f1f1;
+  background-color: #2d2d2d;
 }
 /**************************************************************************
  * 		4.8. Carousel
@@ -499,14 +499,14 @@ a:hover {
 .nav-tabs > li > a:hover,
 .nav-tabs > li > a:focus {
   border-bottom-color: transparent;
-  background-color: #ffffff;
-  color: #444444;
+  background-color: #434343;
+  color: #ededed;
 }
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  background-color: #ffffff;
-  color: #444444;
+  background-color: #434343;
+  color: #ededed;
 }
 /**************************************************************************
  * 		4.11. Buttons
@@ -527,16 +527,16 @@ a:hover {
   background-clip: padding-box;
 }
 .btn-default {
-  color: #444444;
-  border-color: #444444;
+  color: #ededed;
+  border-color: #ededed;
   background-color: transparent;
 }
 .btn-default:hover,
 .btn-default:active,
 .btn-default.active {
-  color: #f8f1f1;
-  background-color: #444444;
-  border-color: #444444;
+  color: #2d2d2d;
+  background-color: #ededed;
+  border-color: #ededed;
 }
 .btn-warning {
   color: #232323;
@@ -553,12 +553,12 @@ a:hover {
 .btn-primary {
   border-color: #d2d2d2;
   background-color: #dfdfdf;
-  color: #232323;
+  color: #ffffff;
 }
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.active {
-  color: #232323;
+  color: #ffffff;
   background-color: #d2d2d2;
   border-color: #cdcdcd;
 }
@@ -566,7 +566,7 @@ a:hover {
  * 		4.12.  Progress Bar
  */
 .progress-bar {
-  background-color: #444444;
+  background-color: #ededed;
   color: #333333;
 }
 /**************************************************************************
@@ -595,7 +595,7 @@ a:hover {
  * 		4.14. Table
  */
 .table-bordered {
-  border: 1px solid #f8f1f1;
+  border: 1px solid #2d2d2d;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -603,7 +603,7 @@ a:hover {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #f8f1f1;
+  border: 1px solid #2d2d2d;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
@@ -612,13 +612,13 @@ a:hover {
 .table-hover > tbody > tr:hover td,
 .table-hover > tbody > tr:hover th {
   /* Fallback for web browsers that doesn't support RGBa */
-  background-color: #f8f1f1;
+  background-color: #2d2d2d;
   /* RGBa with 0.6 opacity */
-  background-color: rgba(248, 241, 241, 0.7);
+  background-color: rgba(46, 46, 46, 0.7);
   /* For IE 5.5 - 7 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b3f8f1f1', endColorstr='#b3f8f1f1');
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b32e2e2e', endColorstr='#b32e2e2e');
   /* For IE 8 */
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b3f8f1f1, endColorstr=#b3f8f1f1)";
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b32e2e2e, endColorstr=#b32e2e2e)";
 }
 /**************************************************************************
  * 		4.15. Ad/ banner
@@ -640,23 +640,23 @@ a:hover {
  * 5. Footer
  */
 .footer-area {
-  color: #c58b8b;
+  color: #7a7a7a;
 }
 .footer-area a {
-  color: #c58b8b;
+  color: #7a7a7a;
 }
 .footer-area a:hover {
-  color: #000000;
+  color: #ffffff;
 }
 .footer-area .widget {
   margin-bottom: 20px;
 }
 .footer-area .widget .widget-title {
-  color: #c58b8b;
-  border-color: rgba(197, 140, 140, 0.3);
+  color: #7a7a7a;
+  border-color: rgba(122, 122, 122, 0.3);
 }
 .footer-area .footer-bottom {
-  border-color: rgba(197, 140, 140, 0.3);
+  border-color: rgba(122, 122, 122, 0.3);
 }
 /**************************************************************************
  * 5. Responsive

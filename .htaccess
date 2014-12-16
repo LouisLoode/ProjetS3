@@ -4,6 +4,8 @@
 
 RewriteEngine On
 
+#RewriteCond %{QUERY_STRING} ^(.*)http(\:|\%3A)(.*)$ ReWriteRule .* - F
+
 # URL rewrite général
 RewriteRule ^([a-zA-Z0-9\&]+).html$            						index.php?page=$1 [QSA,L]
 

@@ -84,11 +84,12 @@
 <?php if ($verif_connect){ ?>
 					<li class="nav-all pull-right">
 						<a href="#" data-toggle="li"> 
-							<span class="img"><img src="img/Tests/avatar.jpg" alt="Avatar de <?php echo $user['id_user'];?>"></span>
+							<span class="img"><img src="img/Tests/avatar.jpg" alt="Avatar de <?php echo $user_infos['id_user'];?>"></span>
 						</a>
 
 						<div class="subnav-wrapper">
 							<ul class="subnav-entries">
+<?php	if ($_SESSION['role']=='2'){ ?>								<li><a href="admin/">Accéder à l'admin</a></li><?php } ?>
 								<li><a href="utilisateur-modifier.html">Modifier mon Profil</a></li>
 								<li><a href="#articles">Mes Articles</a></li>
 								<li><a href="deconnexion.html">Me déconnecter</a></li>

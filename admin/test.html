@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Administration</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../vendor/sb-admin-2/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Le CSS -->
+	<link href="../vendor/pagedown-bootstrap-master/css/jquery.pagedown-bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Afficher la navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">Administration du site</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+	            <li>
+					<a href="../index.html"><i class="fa fa-home fa-fw"></i> Retour à l'accueil du site</a>
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Profil de l'utilisateur</a></li>
+                        <li class="divider"></li>
+                        <li><a href="../deconnexion.html"><i class="fa fa-sign-out fa-fw"></i> Déconnexion</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Tableau de bord</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-file fa-fw"></i> Articles<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index.php?page=liste_articles">Gérer les articles</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?page=ajout_article">Ajouter un article</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-folder fa-fw"></i> Catégories<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="panels-wells.html">Ajouter une catégorie</a>
+                                </li>
+                                <li>
+                                    <a href="buttons.html">Gérer les catégories</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Utilisateurs<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index.php?page=liste_users">Gérer les utilisateurs</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+        
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Liste des articles <small>ou <a href="index.php?page=dashboard">retourner au dashboard</a></small></h1>
+                    </div>
+                    <div class="col-lg-12">
+	                    <a href="index.php?page=ajout_article" class="btn btn-primary btn-sm pull-left">Ajouter une échéance</a><br /><br />
+	                </div>
+                    <div class="col-lg-12">
+	                    
+	                    
+	                
+	                <table class="table">
+						<tr>
+						<th>Id</th>
+						<th>Titre</th>
+						<th>Catégories</th>
+						<th>Visibilité</th>
+						<th>Date</th>
+						<th>Auteur</th>
+						<th>Gestion</th>
+						</tr>
+												<tr class="">
+						<td>24</td>
+						<td style="width: 30%"><a href="index.php?page=ajout_article&modif=24">Titre de l'article</a></td>
+						<td><a href="index.php?page=ajout_categorie&id=3">Articles</a></td>
+						<td><a href="index.php?page=liste_articles&brouillon=24"><span class="label label-success">Publié</span></td>
+	
+						<td><a href="../utilisateurs-1.html">Test2</a></td>
+						<td>1993-03-23</td>
+						<td>
+						<div class="btn-group">
+						  <a href="index.php?page=ajout_article&modif=24" class="btn btn-primary btn-sm">Modifier</a>
+						  <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" role="menu">
+						    <li><a href="../articles-24.html">Consulter</a></li>
+						    <li><a data-toggle="modal" href="#myModal-24" >Supprimer</a></li>
+						  </ul>
+						</div>
+						
+						
+						  <!-- Modal -->
+						  <div class="modal fade" id="myModal-24" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						          <h4 class="modal-title">Supprimer ?</h4>
+						        </div>
+						        <div class="modal-body">
+						         Êtes vous sur de vouloir supprimer: "Titre de l'article" ?
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						          <a href="index.php?page=liste_articles&del=24" class="btn btn-danger btn-sm">Supprimer</a>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						  </div><!-- /.modal -->
+						  </td>
+						</tr>
+												<tr class="">
+						<td>25</td>
+						<td style="width: 30%"><a href="index.php?page=ajout_article&modif=25">qsdf</a></td>
+						<td><a href="index.php?page=ajout_categorie&id=2">Séléctions</a></td>
+						<td><a href="index.php?page=liste_articles&brouillon=25"><span class="label label-success">Publié</span></td>
+	
+						<td><a href="../utilisateurs-1.html">Test2</a></td>
+						<td>1993-03-23</td>
+						<td>
+						<div class="btn-group">
+						  <a href="index.php?page=ajout_article&modif=25" class="btn btn-primary btn-sm">Modifier</a>
+						  <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" role="menu">
+						    <li><a href="../articles-25.html">Consulter</a></li>
+						    <li><a data-toggle="modal" href="#myModal-25" >Supprimer</a></li>
+						  </ul>
+						</div>
+						
+						
+						  <!-- Modal -->
+						  <div class="modal fade" id="myModal-25" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						          <h4 class="modal-title">Supprimer ?</h4>
+						        </div>
+						        <div class="modal-body">
+						         Êtes vous sur de vouloir supprimer: "qsdf" ?
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						          <a href="index.php?page=liste_articles&del=25" class="btn btn-danger btn-sm">Supprimer</a>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						  </div><!-- /.modal -->
+						  </td>
+						</tr>
+												</table>
+						
+						<ul class="pagination center-block">
+<li class="active"><span>1</span></li>						</ul>
+						
+						
+						
+						
+
+						
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery.js"></script>
+
+	<!-- jQuery -->
+    <script src="../vendor/pagedown-bootstrap-master/js/jquery.pagedown-bootstrap.combined.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    
+    <!-- Le lift -->
+<script type="text/javascript">
+$("textarea").pagedownBootstrap({
+	'sanatize': false,
+	'hooks': [
+		{
+			'event': 'preConversion',
+			'callback': function (text) {
+				return text.replace(/\b(a\w*)/gi, "*$1*");
+			}
+		},
+		{
+			'event': 'plainLinkText', 
+			'callback': function (url) {
+				return "This is a link to " + url.replace(/^https?:\/\//, "");
+			}
+		}
+	]
+});
+</script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../vendor/sb-admin-2/sb-admin-2.js"></script>
+
+
+</body>
+
+</html>

@@ -35,7 +35,7 @@ foreach($articles as $data)
 								<p>
 									<?php echo substr($data['contenu'],0,300);?>
 									<p>Note: <?php echo $data['note']; ?>/10</p>
-									<a href="articles-<?php echo $data['id_article'];?>.php" class="more-link">Lire la suite<i class="icon icon-long-arrow-right"></i></a>
+									<a href="articles-<?php echo $data['id_article'];?>.html" class="more-link">Lire la suite<i class="icon icon-long-arrow-right"></i></a>
 								</p>
 
 							</div>
@@ -53,8 +53,9 @@ foreach($articles as $data)
 
 					
 <ul class="pagination">
-<li><a href="#">«</a></li>
 <?php
+ echo ((reset($listePage)==$page) ? '' : '<li><a href="'.$urlPagination['avant'].($page-1).$urlPagination['apres'].'">«</a></li>'); 
+
 	foreach( $listePage as $num )
 	{
 	   if( $num == $page )
@@ -64,8 +65,9 @@ foreach($articles as $data)
 	   else
 	      echo '<li><a href="' . $urlPagination['avant'] . $num . $urlPagination['apres'] . '">' . $num . '</a></li>';
 	}
+	
+echo ((end($listePage)==$page) ? '' : '<li><a href="'.$urlPagination['avant'].($page+1).$urlPagination['apres'].'">»</a></li>');
 ?>
-<li><a href="#">»</a></li>
 </ul>
 
 <form action="javascript:alert( 'success!' );">

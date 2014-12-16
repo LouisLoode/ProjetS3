@@ -29,18 +29,7 @@ switch ($action) // On indique l'action que l'on souhaite effectuer.
 		}
 		
 		if($_POST){
-			
-			/*
-			//$myUser = login($_POST['email'], $_POST['password']);
-			//var_dump($myUser);
 		
-			// Si le mec est connecté on lui crée les sessions et cookies si besoin
-			//if($myUser != NULL) {
-				
-				 $_SESSION['id'] = $myUser['id_user'];
-				 $_SESSION['pseudo'] = $myUser['nom_user'];	
-				 $_SESSION['email'] = $myUser['email'];	
-				*/
 				$alert = message('Le formulaire est ok', 1);
 				//On inclut la vue
 				include(dirname(__FILE__).'/'.VUES.'/modif-profil.php');
@@ -57,6 +46,8 @@ switch ($action) // On indique l'action que l'on souhaite effectuer.
 			}*/
 		
 		}else{
+			
+			$alert = message('Le formulaire est vide', 1);
 		 
 		//On inclut la vue
 		include(dirname(__FILE__).'/'.VUES.'/modif-profil.php');

@@ -3,13 +3,13 @@
 				
 
 
-				<div class="col-md-8 bg-base col-lg-8 col-xl-9">
+				<div class="col-md-8 bg-base contenu col-lg-8 col-xl-9">
 
 					<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">
 							<li><a href="index.html">Accueil</a></li>
 							<li><a href="categories.html">Catégories</a></li>
-							<li class="active"><?php echo $data['nom_cat']; ?></li>
+							<li class="active"><?php echo $articles['0']['nom_cat']; ?></li>
 						</ol>
 					</div>
 					
@@ -18,7 +18,7 @@
 						<header class="page-header">
 						
 							<h2 class="page-title">
-								<?php echo $data['nom_cat']; ?>
+								<?php echo $articles['0']['nom_cat']; ?>
 							</h2>
 
 						</header>

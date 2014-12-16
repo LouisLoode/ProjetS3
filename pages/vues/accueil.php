@@ -26,7 +26,7 @@
 
 					<figure class="entry-thumbnail">
 
-						<a href="single.html" class="overlay overlay-primary"></a>
+						<a href="#" class="overlay overlay-primary"></a>
 
 						<!-- to disable lazy loading, remove data-src and data-src-retina -->
 						<img src="img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="" />
@@ -48,16 +48,16 @@
 					</div>
 
 					<header class="entry-header">
-						<h3 class="entry-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a> </h3>
+						<h3 class="entry-title"><a href="#">Titre de la dernière vidéo</a> </h3>
 						<div class="entry-meta">
-							<span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-							<span class="entry-author"> by <a href="profil.php">John Doe</a></span>
+							<span class="entry-date"><a href="#"><time datetime="2013-07-04T23:26:34+00:00">Il y a 10H</time></a></span>
+							<span class="entry-author"> par <a href="profil.php">John Doe</a></span>
 						</div>
 					</header>
 					
 					<figure class="entry-thumbnail">
 
-						<a href="single.html" class="overlay overlay-primary"></a>
+						<a href="#" class="overlay overlay-primary"></a>
 
 						<!-- to disable lazy loading, remove data-src and data-src-retina -->
 						<img src="img/placeholder.gif" data-src="http://placehold.it/480x280" data-src-retina="http://placehold.it/720x420" width="480" height="280" alt="">
@@ -78,16 +78,16 @@
 					</div>
 
 					<header class="entry-header">
-						<h3 class="entry-title"><a href="single.html">Postman will send notifications to your flashy smartphone about popular people and their latest shouts.</a> </h3>
+						<h3 class="entry-title"><a href="#">Titre de la dernière interview</a> </h3>
 						<div class="entry-meta">
-							<span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-							<span class="entry-author"> by <a href="profil.php">John Doe</a></span>
+							<span class="entry-date"><a href="index.html"><time datetime="2013-07-04T23:26:34+00:00">il y a 3 jours</time></a></span>
+							<span class="entry-author"> par <a href="#">Test</a></span>
 						</div>
 					</header>
 					
 					<figure class="entry-thumbnail">
 
-						<a href="single.html" class="overlay overlay-primary"></a>
+						<a href="#" class="overlay overlay-primary"></a>
 
 						<!-- to disable lazy loading, remove data-src and data-src-retina -->
 						<img src="img/placeholder.gif" data-src="http://placehold.it/480x280" data-src-retina="http://placehold.it/720x420" width="480" height="280" alt="">
@@ -108,16 +108,16 @@
 					</div>
 
 					<header class="entry-header">
-						<h3 class="entry-title"><a href="single.html">Postman will send notifications to your flashy smartphone about popular people and their latest shouts.</a> </h3>
+						<h3 class="entry-title"><a href="#">Dernier Article</a> </h3>
 						<div class="entry-meta">
-							<span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-							<span class="entry-author"> by <a href="profil.php">John Doe</a></span>
+							<span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">il y a 4 heures</time></a></span>
+							<span class="entry-author"> par <a href="#">Test</a></span>
 						</div>
 					</header>
 					
 					<figure class="entry-thumbnail">
 
-						<a href="single.html" class="overlay overlay-primary"></a>
+						<a href="#" class="overlay overlay-primary"></a>
 
 						<!-- to disable lazy loading, remove data-src and data-src-retina -->
 						<img src="img/placeholder.gif" data-src="http://placehold.it/480x280" data-src-retina="http://placehold.it/720x420" width="480" height="280" alt="">
@@ -131,23 +131,23 @@
 
 				</article>
 
-								<article class="entry style-grid style-hero type-post col-md-6 col-lg-3 colheight-sm-1">
+				<article class="entry style-grid style-hero type-post col-md-6 col-lg-3 colheight-sm-1">
 					
 					<div class="ribbon ribbon-pulled ribbon-small ribbon-highlight">
-						<a href="blog.html">Dernière Séléction</a>
+						<a href="blog.html">Dernière Sélection</a>
 					</div>
 
 					<header class="entry-header">
-						<h3 class="entry-title"><a href="single.html">Rumor: The long awaited update for Retina Display is ready to be annaunced on the next event held by them</a> </h3>
+						<h3 class="entry-title"><a href="#">Dernière Sélection</a> </h3>
 						<div class="entry-meta">
-							<span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-							<span class="entry-author"> by <a href="profil.php">John Doe</a></span>
+							<span class="entry-date"><a href="#"><time datetime="2013-07-04T23:26:34+00:00">il y a 20h</time></a></span>
+							<span class="entry-author"> pas <a href="#">Test</a></span>
 						</div>
 					</header>
 					
 					<figure class="entry-thumbnail">
 
-						<a href="single.html" class="overlay overlay-primary"></a>
+						<a href="#" class="overlay overlay-primary"></a>
 
 						<!-- to disable lazy loading, remove data-src and data-src-retina -->
 						<img src="img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="">
@@ -165,7 +165,7 @@
 
 			<div id="content" class="content section row">
 
-				<div class="col-md-8 bg-base col-lg-8 col-xl-9">
+				<div class="col-md-8 contenu bg-base col-lg-8 col-xl-9">
 
 					<div class="ribbon ribbon-highlight">
 						<ol class="breadcrumb ribbon-inner">

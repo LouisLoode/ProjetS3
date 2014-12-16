@@ -22,7 +22,7 @@ define("DB_USER", "test");
 define("DB_PASSWORD", "test");
 
 
-define('ARTICLES_PAGES', '10');
+define('ARTICLES_PAGES', '2');
 define('DONNEE_LIGNES', '25');
 define('USERS_PAGES', '50');
 
@@ -30,5 +30,8 @@ define('USERS_PAGES', '50');
 define('MODELE', '../../inc/modeles');
 define('VUES', '../vues');
 define('CONTROLEURS', 'pages/controleurs');
+
+define('UPLOAD_DIRECTORY', 'medias/');
+define('TAILLE_MAXI', 104857600);
 
 ?>

@@ -90,8 +90,8 @@
 						<div class="subnav-wrapper">
 							<ul class="subnav-entries">
 <?php	if ($_SESSION['role']=='2'){ ?>								<li><a href="admin/">Accéder à l'admin</a></li><?php } ?>
-								<li><a href="utilisateur-modifier.html">Modifier mon Profil</a></li>
-								<li><a href="#articles">Mes Articles</a></li>
+								<li><a href="utilisateur-modifier.html">Modifier mon profil</a></li>
+								<li><a href="#">Mes articles</a></li>
 								<li><a href="deconnexion.html">Me déconnecter</a></li>
 							</ul>
 						</div>

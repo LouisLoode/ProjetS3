@@ -33,7 +33,7 @@ foreach($widget_events as $data)
 
 										<!--fallback for no javascript browsers-->
 										<noscript>
-											&lt;img src="http://placehold.it/720x420" alt=""&gt;
+											<img src="http://placehold.it/720x420" alt="">
 										</noscript>
 
 									</figure>
@@ -66,13 +66,13 @@ foreach($widget_aleatoire as $data)
 {
 ?>
 							<article class="type-post style-media-list media col-sm-6 col-md-12">
-
 								<!-- to disable lazy loading, remove data-src and data-src-retina -->
-								<img src="http://placehold.it/80x80" data-src="http://placehold.it/80x80" data-src-retina="http://placehold.it/160x160" width="80" height="80" class="media-object pull-left" alt="" style="opacity: 1;">
+								<img src="http://placehold.it/80x80" data-src="http://placehold.it/80x80" data-src-retina="http://placehold.it/160x160" width="80" height="80" class="media-object pull-left" alt="" style="opacity: 1;"></a>
+</a>
 
 								<!--fallback for no javascript browsers-->
 								<noscript>
-									&lt;img src="http://placehold.it/80x80" alt=""&gt;
+									<img src="http://placehold.it/80x80" alt="">
 								</noscript>
 
 								<div class="media-body">

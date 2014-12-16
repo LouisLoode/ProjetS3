@@ -12,6 +12,11 @@ if (isset($_GET['id'])) {
 	//Préparation de la requête
 	$data = display_article($id_article);
 	
+	$id_cat = $data['id_cat'];
+	
+	//Préparation de la requête
+	$articles_relatifs = liste_articles('', $id_cat);
+	
 	//On inclut la vue
 	include(dirname(__FILE__).'/'.VUES.'/article.php'); 
 	

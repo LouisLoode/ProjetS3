@@ -4,14 +4,16 @@
     * Ajoute un article à la BDD
     * @retun 0 si pas d'erreur
     */
-function ajout_article($titre, $date, $introduction, $contenu, $categorie, $en_avant='0', $statut='0'){
+function ajout_article($titre, $date, $introduction, $contenu, $categorie, $en_avant='0', $statut='0', $illustration, $fichier, $extension){
 	
 	$i = 0;
 	
-	$id_user = $_SESSION['id'];
+		$dossier = '../'.UPLOAD_DIRECTORY; // Dossier de stockage
+		$taille_maxi = TAILLE_MAXI; // Taille maximale
+		$extensions = array('.png', '.gif', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'); // Extensions autorisées
+		$taille = filesize($illustration); // Taille du fichier
 	
-	require('../libs/UploadHandler.class.php');
-	$upload_handler = new UploadHandler();
+	$id_user = $_SESSION['id'];
 	
 			if(empty($titre)){
 			
@@ -28,19 +30,36 @@ function ajout_article($titre, $date, $introduction, $contenu, $categorie, $en_a
 				$alert = message('Le contenu n\'a pas été renseigné.', 3);
 				$i++;
 				
-			}/*elseif(empty($categories)){
-				$alert = message('Vous n\'avez pas séléctionné de catégorie.', 3);
+			}elseif(!isset($illustration)){
+				
+				$alert = message('Vous n\'avez pas mis de fichier.', 3);
 				$i++;
-			}*/
+					
+			}elseif(!in_array($extension, $extensions)){
+				
+				$alert = message('Vous devez uploader un fichier de type png, gif, jpg ou jpeg.', 3);
+				$i++;
+					
+			}elseif($taille>$taille_maxi){
+				
+				$alert = message('L\'illustration a un poids trop important.', 3);
+				$i++;
+			}
 			else
 		    {
-
+				if(move_uploaded_file($illustration, $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+				{
 	        		 // On crée une nouvelle entrée dans la table.
-		    		$myRequete = 'INSERT INTO articles(id_article, titre, introduction, contenu, statut, en_avant, date, id_user, id_cat) VALUES("", "'.$titre.'" ,"'.$introduction.'","'.$contenu.'", "'.$statut.'", "'.$en_avant.'", "'.$date.'", "'.$id_user.'", "'.$categorie.'")';
+		    		$myRequete = 'INSERT INTO articles(id_article, titre, introduction, contenu, statut, en_avant, date, id_user, id_cat, media) VALUES("", "'.$titre.'" ,"'.$introduction.'","'.$contenu.'", "'.$statut.'", "'.$en_avant.'", "'.$date.'", "'.$id_user.'", "'.$categorie.'", "'.$fichier.'")';
 		    		//var_dump($myRequete);
 		    		
 		    		$myCols = requete($myRequete);
 		    		//var_dump($myCols);
+		    	}else{
+			    	
+			    	$alert = message('L\'importation du média est partie en live !', 3);
+					$i++;
+		    	}
     		}
 
 	return $i;
@@ -50,7 +69,7 @@ function ajout_article($titre, $date, $introduction, $contenu, $categorie, $en_a
     * Modification d'un article
     * @retun 0 si pas d'erreurs
     */
-function modif_article($id_cat, $titre, $date, $introduction, $contenu, $categorie, $en_avant='0', $statut='0'){
+function modif_article($id_article, $titre, $date, $introduction, $contenu, $categorie, $en_avant='0', $statut='0'){
 
 	$i = 0;
 	
@@ -574,5 +593,6 @@ function display_article($id_article){
         return $data;
 
 }
+
 
 ?>

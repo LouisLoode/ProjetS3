@@ -3,17 +3,22 @@
 <?php
 foreach($articles as $data)
 {
+	$introduction = $data['introduction'];
 ?>
 						<article class="entry style-media media type-post">
-
+							
 							<figure class="media-object pull-left entry-thumbnail hidden-xs">
 
 								<!-- to disable lazy loading, remove data-src and data-src-retina -->
-								<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" class="" alt="">
+								<a href="articles-<?php echo $data['id_article'];?>.html">
+									<img src="img/placeholder.gif" data-src="http://placehold.it/230x230" data-src-retina="http://placehold.it/460x460" width="230" height="230" class="" alt="">
+								</a>
 
 								<!--fallback for no javascript browsers-->
 								<noscript>
-									<img src="http://placehold.it/230x230" alt="">
+									<a href="articles-<?php echo $data['id_article'];?>.html">
+										<img src="http://placehold.it/230x230" alt="">
+									</a>
 								</noscript>
 
 							</figure>
@@ -28,12 +33,20 @@ foreach($articles as $data)
 									<div class="entry-meta">
 										<span class="author">par <a href="utilisateurs-<?php echo $data['id_user']; ?>.html"><?php echo $data['nom_user']; ?></a></span>
 										<span class="entry-date"><a href="articles-<?php echo $data['id_article']; ?>.html">le <time datetime="<?php echo $data['date']; ?>"><?php echo $data['date']; ?></time></a></span>
-										<span class="category">Dans <a href="categorie-<?php echo $data['id_cat']; ?>"><?php echo $data['nom_cat']; ?></a></span>
+										<span class="category">Dans <a href="categories-<?php echo $data['id_cat']; ?>.html"><?php echo $data['nom_cat']; ?></a></span>
 									</div>
 								</header>
 
 								<p>
-									<?php echo substr($data['contenu'],0,300);?>
+									<?php 
+									
+									if($introduction==''){	
+										echo substr($data['contenu'],0,300);
+									}else{
+										echo $introduction;
+									}
+										
+									?>
 									<p>Note: <?php echo $data['note']; ?>/10</p>
 									<a href="articles-<?php echo $data['id_article'];?>.html" class="more-link">Lire la suite<i class="icon icon-long-arrow-right"></i></a>
 								</p>

@@ -631,3 +631,42 @@ border-bottom: 0px;
 .row {
 padding-bottom: 0px; 
 }
+
+.sidebar {
+	background-color: #434343;
+}
+
+.contenu {
+	border-right: 1px solid #ccc;
+}
+
+
+.pagination > li.active > span, .pagination > li.active > span:hover, .pagination > li a:hover {
+background-color: transparent;
+color: #E09494;
+font-size: larger;
+}
+
+.btn-danger {
+color: #fff;
+background-color: #b21605;
+border-color: #b21605;
+}
+
+.btn-danger:hover {
+color: #fff;
+background-color: #b21605;
+border-color: #b21605;
+opacity: 0.6;
+}
+
+.style-single .entry-thumbnail {
+margin-left: -15px;
+margin-right: -15px;
+margin-bottom: 20px;
+}
+
+.form-control {
+   color: #FFFFFF;
+
+}

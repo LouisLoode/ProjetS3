@@ -43,17 +43,17 @@ function requete($myRequete) {
 }
 
 
-function code_alea(){
-	$string = strtoupper(uniqid());
-	return substr($string,5,strlen($string));
+function customHash($chars = 8, $items = 'abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'){
+		$output 	= '';
+		$chars 		= (int)$chars;
+		$nbr		= strlen($items);
+		if($chars > 0 && $nbr > 0){
+			for($i = 0; $i < $chars; $i++){
+				$output	.= $items[mt_rand(0,($nbr-1))];
+			}
+		}
+		return $output;
 }
-
-function chiffre_alea(){
-	$string = mt_rand(111,999);
-	return $string;
-}
-
-
 
 
 function get_list_page($page, $nb_page, $nb = 3){
@@ -100,52 +100,5 @@ function extrait($string, $start = 20, $end = 15, $sep = ' [...]')
         $extrait2 = strstr(substr($string, -$end,$end),' ');
         return $extrait.' '.$extrait2;
 }
-
-function authorisation($auth_necessaire, $auth)
-{
-	$level=(isset($auth))?$auth:0;
-	return ($auth_necessaire <= intval($level));
-}
-
-function customHash($chars = 8, $items = 'abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'){
-	
-	$output 	= '';
-	$chars 		= (int)$chars;
-	$nbr		= strlen($items);
-	
-	if($chars > 0 && $nbr > 0){
-		for($i = 0; $i < $chars; $i++){
-			$output	.= $items[mt_rand(0,($nbr-1))];
-		}
-	}
-	return $output;
-}
-
-
-/*
-	
-<?php
-// In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
-// of $_FILES.
-
-$uploaddir = './uploads';
-$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
-
-echo '<pre>';
-if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-    echo "File is valid, and was successfully uploaded.\n";
-} else {
-    echo "Possible file upload attack!\n";
-}
-
-echo 'Here is some more debugging info:';
-print_r($_FILES);
-
-print "</pre>";
-
-?>	
-	
-	
-*/
 
 ?>

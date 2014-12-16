@@ -47,7 +47,7 @@ switch ($action) // On indique l'action que l'on souhaite effectuer.
 		
 		}else{
 			
-			$alert = message('Le formulaire est vide', 1);
+			$alert = message('Le formulaire est vide', 3);
 		 
 		//On inclut la vue
 		include(dirname(__FILE__).'/'.VUES.'/modif-profil.php');

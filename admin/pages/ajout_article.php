@@ -7,32 +7,42 @@ http://stackoverflow.com/questions/9852536/one-article-multiple-categories-syste
 	
 if ($_POST)
 {
-		
+		$chaine = customHash(); // Chaine de caractére unique par publication
 	    $titre = $myConnexion->real_escape_string($_POST['titre']);	// Titre
 	    $date = $myConnexion->real_escape_string($_POST['date']);
 		$introduction = $myConnexion->real_escape_string($_POST['contenu']); //Description
 	    $contenu = $myConnexion->real_escape_string($_POST['contenu']); //Description
 	    $categories = str_replace('cat-', '', $_POST['categorie']);
 	    $id_publication = $myConnexion->real_escape_string($_POST['id_publication']);
-	    if($_POST['public']=='public'){
+	    
+	    
+	   var_dump($_FILES['illustration']);
+	    
+	    // Configuration pour l'upload de fichier
+	    $illustration = $_FILES['illustration']['tmp_name'];
+	    var_dump($illustration);
+	    $extension = strrchr($_FILES['illustration']['name'], '.'); // Extension du fichier
+
+		if($_POST['fichier']==''){
+		$fichier = $chaine.$extension; // Nouveau nom du fichier	
+		}else{
+		$fichier = addslashes($_POST['fichier']); // Nouveau nom du fichier	
+		}
+	    
+	    if((isset($_POST['public'])) && ($_POST['public']=='public')){
 		    $valide = '1';
 	    }else{
 		    $valide = '0';
 	    }
 	     
-		$en_avant = (($_POST['en_avant']=='1') ? '1' : '0'); //En avant
-	    
-	    
-	    require('UploadHandler.class.php');
-		$upload_handler = new UploadHandler();
+		$en_avant = (((isset($_POST['en_avant']))&&($_POST['en_avant']=='1')) ? '1' : '0'); //En avant
+
 
   	// On vérifie si c'est une modification de news ou non.
 		if ($_POST['id_publication'] == 0)
 	    {
-		    
-		    require('UploadHandler.class.php');
-			$upload_handler = new UploadHandler();
-			if (ajout_article($titre, $date, $introduction, $contenu, $categories, $en_avant, $valide)==0)
+
+			if (ajout_article($titre, $date, $introduction, $contenu, $categories, $en_avant, $valide, $illustration,$fichier,$extension)==0)
 			{
 
 				 $alert = message('L\'article a bien été créé.', 1);
@@ -42,8 +52,8 @@ if ($_POST)
 			}else{
 				
 				$alert = message('Il y a eu un probléme durant la création de l\'article.', 3);
-				header('Location: index.php?page=ajout_article');
-				exit;
+				/*header('Location: index.php?page=ajout_article');
+				exit;*/
 			}
 		}	
 		else
@@ -79,7 +89,7 @@ if (isset($_GET['modif'])) // Si on demande de modifier une news.
     $introduction = stripslashes($data['introduction']);
     $contenu = stripslashes($data['contenu']);
     $categorie = $data['id_cat'];
-	//$fichier = $data['fichier'];
+	$fichier = $data['media'];
 	$en_avant = $data['en_avant'];
     $id_publication = $data['id_article']; // Cette variable va servir pour se souvenir que c'est une modification.
 }
@@ -91,6 +101,7 @@ else // C'est qu'on rédige une nouvelle echeance.
     $introduction = '';
 	$en_avant = '0';
 	$categorie = '';
+	$fichier = '';
     $id_publication = 0; // La variable vaut 0, donc on se souviendra que ce n'est pas une modification.
 }
 
@@ -130,6 +141,40 @@ else // C'est qu'on rédige une nouvelle echeance.
 <br />
 					        
 <div class="textarea col-md-12">
+	
+	
+					<div  class="form-group col-md-12">         
+					<div class="chat-panel panel panel-default">
+						<div class="panel-heading">
+                            <i class="fa fa-folder fa-fw"></i>
+                            Image
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="chat">
+					            <div class="form-group">
+								      <label for="illustration">Illustration (<span class="text-danger">*</span>)</label>
+								      <?php if($fichier!=''){
+											?>
+								      <br />
+								      <img src="../<?php echo UPLOAD_DIRECTORY.$fichier;?>" alt="<?php echo $fichier;?>" class="img-responsive"/>
+								      <p class="text-center">Pour changer d'image, remplissez le formulaire ci-dessous.</p>
+								      <?php	
+											}
+										?>
+								      <input type="file" id="illustration" name="illustration">
+								      <p class="help-block">Les illustrations sont facultatives, la taille maximale doit être de XXXXxXXXXpx et le poids de XXXMo.</p>
+								</div>
+
+					              <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+								  <input type="hidden" name="fichier" value="<?php echo $fichier; ?>" />
+					        
+                            </div>
+                        </div>
+                    </div>
+				</div>    
+	
+	
 				<div  class="form-group col-md-6">         
 					<div class="chat-panel panel panel-default">
 						<div class="panel-heading">

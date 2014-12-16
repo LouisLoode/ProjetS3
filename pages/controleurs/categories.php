@@ -5,7 +5,7 @@
 Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'en rajouter. */
 
 
-// Si l'id est renseigné, alors on veut voir un article en particulier.
+// Si l'id est renseigné, alors on veut voir une catégorie en particulier.
 if (isset($_GET['id'])) { 
 	
 		// On récupére la valeur de la variable qui récupére le numéro de la page. Si la variable est vide, alors on attribue la valeur par défaut 1.
@@ -26,7 +26,6 @@ if (isset($_GET['id'])) {
 		// Compte le nombre de lignes du tableau renvoyé par la variable liste_articles.
 		$nb_articles = count_articles($id_cat, $id_user);
 		
-		
 		$articles_pages = ARTICLES_PAGES;
 		
 		// On divise le nombre d'articles du tableau par le nombre d'éléments qu'on veut par pages.
@@ -37,10 +36,8 @@ if (isset($_GET['id'])) {
 		
 		$premiereEntree = ($page-1) * $articles_pages;
 		
-		
-		
 		//Préparation de la requête
-		$articles = liste_articles($by, $id_cat, $id_user, $premiereEntree.', '.$articles_pages);
+		$articles = liste_articles($by, $id_cat);
 	
 	//On inclut la vue
 	include(dirname(__FILE__).'/'.VUES.'/categorie.php');
